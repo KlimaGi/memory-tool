@@ -1,0 +1,8 @@
+- .env
+- add content structure
+- back corrections
+- connect back to front logic
+- add cookies
+- add scss modules, improve it 
+- correct styles, make it more simple
+- add eslint 
