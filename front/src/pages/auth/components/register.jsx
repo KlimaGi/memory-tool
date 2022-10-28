@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { post } from '../plugins/http';
+import { post } from '../../../plugins/http';
 import { useNavigate } from 'react-router-dom';
 
 

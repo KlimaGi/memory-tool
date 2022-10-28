@@ -1,19 +1,20 @@
+const dotenv = require("dotenv");
 const express = require('express');
 
-// express serveris
 const app = express();
 const cors = require('cors');
 const mongoose = require("mongoose")
 const mainRouter = require("./routes/router");
 
+dotenv.config();
 mongoose.connect(process.env.ATLAS_URI)
   .then(() => { console.log('connected ok') })
-  .catch(e => {
-    console.log('connection error')
+  .catch(error => {
+    console.log('connection error', error)
   })
 
 app.use(cors());
-// is front'o galiu siusti objektus, back'as lengvai juos skaityti gales
+
 app.use(express.json());
 
 app.listen(4000);

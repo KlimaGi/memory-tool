@@ -10,22 +10,32 @@ const Toolbar = () => {
 
   const logout = () => {
     localStorage.removeItem("secret");
-    nav('/');
+    nav('/auth/login');
   }
+
   return (
-    <div className='toolbar'>
-      <Link to='/register'>Register</Link>
-      <Link to='/'>Login</Link>
+    <div className='toolbar-container'>
+      <div>
+        <img src='/assets/logo-white-sm.png' alt='logo' />
+      </div>
 
-      {user &&
-        <>
-          <Link to='/profile'>Profile</Link>
-          <Link to='/create'>Create</Link>
-          <Link to='/allPosts'>All</Link>
-          <Button func={logout} text='logout' />
-        </>
-      }
+      <div className='toolbar'>
+        {!user &&
+          <>
+            <Link to='/auth/register'>Register</Link>
+            <Link to='/auth/login'>Login</Link>
+          </>
+        }
+        {user &&
+          <>
+            <Link to='/profile'>Profile</Link>
+            <Link to='/create'>Create</Link>
+            <Link to='/allPosts'>All</Link>
+            <Button func={logout} text='logout' />
+          </>
+        }
 
+      </div>
     </div>
   )
 }

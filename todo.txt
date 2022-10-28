@@ -1,4 +1,4 @@
-- .env
+-* .env
 - add content structure
 - back corrections
 - connect back to front logic

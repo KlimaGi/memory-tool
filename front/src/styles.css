@@ -87,7 +87,12 @@
   overflow: hidden;
   border-radius: 50%;
 }
-
+.toolbar-container {
+  background-color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .toolbar {
   background-color: var(--light);
   display: flex;
@@ -97,4 +102,8 @@
 .toolbar a {
   margin: 1rem;
   padding: 1rem;
+}
+
+.auth-layer{
+  background-image: url(./assets/image-bg.png);
 }
