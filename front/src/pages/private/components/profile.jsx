@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
-import { get, post } from '../plugins/http';
-import MainContext from '../context/main-context';
+import { get, post } from '../../../plugins/http';
+import MainContext from '../../../context/main-context';
 
 const Profile = () => {
   const { user, setUser } = useContext(MainContext);

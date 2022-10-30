@@ -20,7 +20,7 @@ const Login = () => {
     localStorage.setItem('secret', res.data.secret);
     if (res.error) return setError(res.message);
     // return kodel naudojamas, jei veikia ir be jo?
-    nav("/profile");
+    nav("/dashboard/profile");
   }
 
   return (
