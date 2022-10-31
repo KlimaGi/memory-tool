@@ -6,14 +6,16 @@ const {
   passwordValid,
   userValid,
   photoValid,
-  secretValid
+  secretValid,
+  topicValid
 } = require("../middleware/middle");
 
 const {
   register,
   login,
   userData,
-  setPhoto
+  setPhoto,
+  createTopic
 } = require('../controllers/mainController');
 
 router.post('/register', emailValid, passwordValid, userValid, register);
@@ -21,7 +23,7 @@ router.post('/login', login);
 router.get('/userProfile/:secret', secretValid, userData);
 router.post('/setPhoto', secretValid, setPhoto);
 
-router.get('/profile/:secret', secretValid,)
+router.post('/topicData', secretValid, topicValid, createTopic)
 
 
 module.exports = router; 

@@ -1,14 +1,27 @@
 import React, { useRef } from 'react'
+import { post } from '../../plugins/http';
 
 const CreateTopicPage = () => {
   const titleRef = useRef();
   const contentRef = useRef();
 
+  const createTopic = async () => {
+    const topicData = {
+      secret: localStorage.getItem('secret'),
+      title: titleRef.current.value,
+      content: contentRef.current.value,
+    };
+    console.log('topicData', topicData);
+    const res = await post('topicData', topicData);
+    console.log('topicData-res', res);
+  };
 
 
   return (
-    <div>
-      Create topic Page
+    <div className='center'>
+      <input ref={titleRef} type='text' placeholder='photo' className='input' />
+      <textarea ref={contentRef} type='text' placeholder='topic content' rows="6" cols="20" className='input' />
+      <button onClick={createTopic} className='button'>Create</button>
     </div>
   )
 }

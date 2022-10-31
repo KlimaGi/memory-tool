@@ -45,5 +45,11 @@ module.exports = {
 
     req.body.user = user;
     next();
+  },
+  topicValid: async (req, res, next) => {
+    const { title, content } = req.body;
+    if (title.trim().length == 0) return sendRes(res, true, "empty title", null);
+    if (content.trim().length == 0) return sendRes(res, true, "empty content", null);
+    next();
   }
 }

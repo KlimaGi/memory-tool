@@ -11,7 +11,7 @@ const PublicPage = () => {
           <img src='/assets/logo-white-sm.png' alt='logo' />
         </div>
 
-        <Link to='/auth/login' >
+        <Link to='/auth/login'>
           <div>
             Login
           </div>

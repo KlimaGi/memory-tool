@@ -6,4 +6,6 @@
 - add cookies
 - add scss modules, improve it 
 - correct styles, make it more simple
+- make responsive styles
 - add eslint 
+- add tests to node/back modules and middlewares

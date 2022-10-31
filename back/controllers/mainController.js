@@ -1,7 +1,8 @@
 const keygen = require("keygenerator");
 const bcrypt = require('bcrypt');
+const moment = require('moment');
 const userSchema = require('../schemas/userSchema');
-const postSchema = require('../schemas/postSchema');
+const topicSchema = require('../schemas/topicSchema');
 const sendRes = require('../modules/universalRes');
 
 module.exports = {
@@ -50,6 +51,14 @@ module.exports = {
     );
 
     return sendRes(res, false, 'ok-photo', { photo: userData.photo });
+  },
+  createTopic: async (req, res) => {
+    const { title, content } = req.body;
+    const date = moment().format('MMMM Do YYYY, h:mm:ss a');
+    // add logic 
+    console.log('date', date);
+    console.log('req-create-topic', title);
+    return sendRes(res, false, "ok-post", req.body);
   }
 
 }
