@@ -29,16 +29,15 @@ const Register = () => {
   }
 
   return (
-    <div className='main'>
-      <div className='container form' >
-        <input ref={emailRef} type='text' placeholder='email' />
-        <input ref={passwordRef} type='text' placeholder='password' />
-        <input ref={password2Ref} type='text' placeholder='repeat password' />
+    <div className='container form' >
+      <input ref={emailRef} type='text' placeholder='email' />
+      <input ref={passwordRef} type='text' placeholder='password' />
+      <input ref={password2Ref} type='text' placeholder='repeat password' />
 
-        <button className='button' onClick={register}>register</button>
-        <span className='error-msg'>{error}</span>
-      </div>
+      <button className='button' onClick={register}>register</button>
+      <span className='error-msg'>{error}</span>
     </div>
+
   )
 }
 

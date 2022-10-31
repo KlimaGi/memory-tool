@@ -1,4 +1,5 @@
 -* .env
+*- add strict routes structure
 - add content structure
 - back corrections
 - connect back to front logic

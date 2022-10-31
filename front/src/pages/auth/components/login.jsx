@@ -24,15 +24,12 @@ const Login = () => {
   }
 
   return (
-    <div className='main'>
+    <div className='container form'>
+      <input ref={emailRef} type='text' placeholder='email' />
+      <input ref={passwordRef} type='text' placeholder='password' />
 
-      <div className='container'>
-        <input ref={emailRef} type='text' placeholder='email' className='input' />
-        <input ref={passwordRef} type='text' placeholder='password' className='input' />
-
-        <Button func={login} text="login" />
-        <span className='error-msg'>{error}</span>
-      </div>
+      <Button func={login} text="login" />
+      <span className='error-msg'>{error}</span>
     </div>
   )
 }

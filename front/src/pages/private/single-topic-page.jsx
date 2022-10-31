@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SinglePostPage = () => {
+const SingleTopicPage = () => {
   return (
     <div>
       Single Post Page
@@ -8,4 +8,4 @@ const SinglePostPage = () => {
   )
 }
 
-export default SinglePostPage;
+export default SingleTopicPage;
