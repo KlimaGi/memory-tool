@@ -7,6 +7,7 @@ const AuthLayout = () => {
       <div className='logo-container'>
         <img src='/assets/logo-white-sm.png' alt='logo' />
       </div>
+
       <Outlet />
     </div>
   )

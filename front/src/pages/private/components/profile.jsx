@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { get, post } from '../../../plugins/http';
 import MainContext from '../../../context/main-context';
 
@@ -42,7 +42,6 @@ const Profile = () => {
           <button onClick={changePhoto}>change photo</button>
           <input ref={photoRef} type='text' placeholder='photo url' />
         </div>
-
       }
     </div>
   )

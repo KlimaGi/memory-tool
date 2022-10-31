@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { post } from '../../../plugins/http';
 import Button from '../../../components/button';
 
@@ -19,7 +19,7 @@ const Login = () => {
 
     localStorage.setItem('secret', res.data.secret);
     if (res.error) return setError(res.message);
-    // return kodel naudojamas, jei veikia ir be jo?
+
     nav("/dashboard/profile");
   }
 
@@ -30,6 +30,7 @@ const Login = () => {
 
       <Button func={login} text="login" />
       <span className='error-msg'>{error}</span>
+      <p>Don't have an account, let's <Link to='/auth/register'>Register</Link></p>
     </div>
   )
 }

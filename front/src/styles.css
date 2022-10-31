@@ -1,5 +1,6 @@
 :root{
-  --light: #e2e2f0a1;
+  --light: #e2e2f0;
+  --light-opasity: #e2e2f0a1;
   --semi-light: #d0d0e7;
   --dark: #535387;
   --red: #cd5c5c;
@@ -34,7 +35,7 @@
 .logo-container{
   width: 30rem;
   padding: 2rem 1rem 1rem;
-  background-color: var(--light);
+  background-color: var(--light-opasity);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,7 @@
 .container {
   width: 30rem;
   padding: 1rem 0 4rem;
-  background-color: var(--light);
+  background-color: var(--light-opasity);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,6 +107,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 }
 .toolbar {
   background-color: var(--light);
@@ -131,7 +133,7 @@ background-size: cover;
   flex-direction: column;
 }
 
-.auth-layer a {
+.auth-layer>a {
   background-color: var(--light);
   width: 14rem;
   margin: 1rem;
@@ -139,6 +141,6 @@ background-size: cover;
   text-decoration: none;
   text-align: center;
 }
-.auth-layer a:hover{
+.auth-layer>a:hover{
 background-color: var(--semi-light);
 }

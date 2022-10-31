@@ -11,7 +11,7 @@ import RegisterPage from './pages/auth/register-page';
 
 import PrivateLayout from './pages/private/components/private-layout';
 import ProfilePage from './pages//private/profile-page';
-import CreatePostPage from './pages/private/create-post-page';
+import CreateTopicPage from './pages/private/create-topic-page';
 import AllTopicsPage from './pages/private/all-topics-page';
 import SingleTopicPage from './pages/private/single-topic-page';
 
@@ -31,7 +31,6 @@ function App() {
       <MainContext.Provider value={states}>
 
         <BrowserRouter>
-
           <Routes>
             <Route path='/' element={<PublicPage />} />
 
@@ -43,7 +42,7 @@ function App() {
             <Route path='dashboard' element={<PrivateLayout />} >
               <Route path='allTopics' element={<AllTopicsPage />} />
               <Route path='profile' element={<ProfilePage />} />
-              <Route path='create' element={<CreatePostPage />} />
+              <Route path='create' element={<CreateTopicPage />} />
               <Route path='singleTopic' element={<SingleTopicPage />} />
             </Route>
 

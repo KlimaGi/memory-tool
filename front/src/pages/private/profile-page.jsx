@@ -7,11 +7,6 @@ const ProfilePage = () => {
   return (
     <div className=''>
 
-      <div className='line'>
-        <div>Posts</div>
-
-      </div>
-
       <Profile />
 
     </div>

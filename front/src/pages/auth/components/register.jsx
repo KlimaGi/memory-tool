@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { post } from '../../../plugins/http';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Register = () => {
@@ -23,7 +23,7 @@ const Register = () => {
     if (!res.error) {
       console.log('res.data', res.data);
       sessionStorage.setItem('secret', res.data);
-      nav("/");
+      nav("/dashboard/profile");
     };
     console.log('registerData res', res);
   }
@@ -36,6 +36,7 @@ const Register = () => {
 
       <button className='button' onClick={register}>register</button>
       <span className='error-msg'>{error}</span>
+      <p>If you already registered, let's <Link to='/auth/login'>Login</Link></p>
     </div>
 
   )

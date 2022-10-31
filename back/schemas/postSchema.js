@@ -1,21 +1,33 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema({
+const topicSchema = new Schema({
+  userId: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
   },
-  email: {
+  content: {
     type: String,
     required: true
   },
-  image: {
+  startDay: {
     type: String,
-    required: true,
+    required: true
   },
-})
+  progress: {
+    type: Number,
+    required: true
+  },
+  progressUpdateDate: {
+    type: String,
+    required: true
+  }
+});
 
-const exportUser = mongoose.model("registerUsersPost", postSchema);
+const exportUser = mongoose.model("memoTopicSchema", topicSchema);
 
 module.exports = exportUser;
