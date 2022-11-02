@@ -23,7 +23,7 @@ const Toolbar = () => {
 
         <Link to='/dashboard/profile'>Profile</Link>
         <Link to='/dashboard/create'>Create</Link>
-        <Link to='/dashboard/allPosts'>All</Link>
+        <Link to='/dashboard/allTopics'>All</Link>
         <Button func={logout} text='logout' />
 
       </div>

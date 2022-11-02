@@ -75,6 +75,12 @@ module.exports = {
     await newTopic.save();
 
     return sendRes(res, false, "ok-post", topicData);
+  },
+  allTopics: async (req, res) => {
+    const { secret } = req.params;
+    const topics = await topicSchema.find({ userIdSecret: secret });
+
+    return sendRes(res, false, "ok-all-posts", topics);
   }
 
 }

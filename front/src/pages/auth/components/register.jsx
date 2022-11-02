@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { post } from '../../../plugins/http';
 import { useNavigate, Link } from 'react-router-dom';
 
-
 const Register = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -23,7 +22,7 @@ const Register = () => {
     if (!res.error) {
       console.log('res.data', res.data);
       sessionStorage.setItem('secret', res.data);
-      nav("/dashboard/profile");
+      nav("/auth/login");
     };
     console.log('registerData res', res);
   }

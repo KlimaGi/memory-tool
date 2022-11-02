@@ -16,12 +16,12 @@ import AllTopicsPage from './pages/private/all-topics-page';
 import SingleTopicPage from './pages/private/single-topic-page';
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [topics, setTopics] = useState([]);
   const [user, setUser] = useState(null);
 
   const states = {
-    posts,
-    setPosts,
+    topics,
+    setTopics,
     user,
     setUser
   }
