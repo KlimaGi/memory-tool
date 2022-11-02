@@ -9,3 +9,8 @@
 - make responsive styles
 - add eslint 
 - add tests to node/back modules and middlewares
+
+
+-https://www.youtube.com/watch?v=pf6Zhm-PDfQ&ab_channel=TECHIN5MINUTES
+https://www.youtube.com/watch?v=7r4xVDI2vho&ab_channel=TraversyMedia
+https://www.youtube.com/watch?v=zRo2tvQpus8&ab_channel=TraversyMedia

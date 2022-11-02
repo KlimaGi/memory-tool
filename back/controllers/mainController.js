@@ -53,12 +53,28 @@ module.exports = {
     return sendRes(res, false, 'ok-photo', { photo: userData.photo });
   },
   createTopic: async (req, res) => {
-    const { title, content } = req.body;
-    const date = moment().format('MMMM Do YYYY, h:mm:ss a');
-    // add logic 
-    console.log('date', date);
-    console.log('req-create-topic', title);
-    return sendRes(res, false, "ok-post", req.body);
+    const { title, content, secret } = req.body;
+    // years & days is 1 indexed
+    // month is 0 indexed
+    const date = moment().toArray();
+    const progress1 = moment(date).add(10, 'm').toArray();
+    const progress2 = moment(progress1).add(1, 'd').toArray();
+    const progress3 = moment(progress2).add(1, 'w').toArray();
+    const progress4 = moment(progress3).add(1, 'M').toArray();
+    const progress5 = moment(progress4).add(6, 'M').toArray();
+    const topicData = {
+      userIdSecret: secret,
+      title,
+      content,
+      startDay: date,
+      progress: [progress1, progress2, progress3, progress4, progress5],
+      progressDone: 0
+    };
+
+    const newTopic = new topicSchema(topicData);
+    await newTopic.save();
+
+    return sendRes(res, false, "ok-post", topicData);
   }
 
 }

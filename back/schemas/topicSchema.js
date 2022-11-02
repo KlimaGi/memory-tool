@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const topicSchema = new Schema({
-  userId: {
+  userIdSecret: {
     type: String,
     required: true
   },
@@ -15,15 +15,15 @@ const topicSchema = new Schema({
     required: true
   },
   startDay: {
-    type: String,
+    type: [Number],
     required: true
   },
   progress: {
-    type: Number,
+    type: [[Number], [Number], [Number], [Number], [Number]],
     required: true
   },
-  progressUpdateDate: {
-    type: String,
+  progressDone: {
+    type: Number,
     required: true
   }
 });
