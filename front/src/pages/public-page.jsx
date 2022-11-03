@@ -11,14 +11,14 @@ const PublicPage = () => {
           <img src='/assets/logo-white-sm.png' alt='logo' />
         </div>
 
-        <Link to='/auth/login'>
-          <div>
+        <Link className='button-link' to='/auth/login'>
+          <div className='button-link'>
             Login
           </div>
         </Link>
 
-        <Link to='/auth/register'>
-          <div>
+        <Link className='button-link' to='/auth/register'>
+          <div className='button-link'>
             Register
           </div>
         </Link>

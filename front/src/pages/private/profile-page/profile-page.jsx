@@ -5,7 +5,7 @@ const ProfilePage = () => {
 
 
   return (
-    <div className=''>
+    <div className='side'>
 
       <Profile />
 

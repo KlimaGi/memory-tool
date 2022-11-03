@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import TopicProgressCircles from './topic-progress-circles';
+import TopicProgressCircles from '../../common-components/topic-progress-circles';
 
 const SingleTopic = ({ topic }) => {
   const nav = useNavigate();
-  console.log('topic', topic);
 
   return (
     <div className='topic' onClick={() => nav(`/dashboard/singleTopic/${topic._id}`)}>
@@ -18,4 +17,4 @@ const SingleTopic = ({ topic }) => {
   )
 }
 
-export default SingleTopic
+export default SingleTopic;

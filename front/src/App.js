@@ -9,12 +9,12 @@ import AuthLayout from './pages/auth/components/auth-layout';
 import LoginPage from './pages/auth/login-page';
 import RegisterPage from './pages/auth/register-page';
 
-import PrivateLayout from './pages/private/components/private-layout';
-import ProfilePage from './pages//private/profile-page';
+import PrivateLayout from './pages/private/common-components/private-layout';
+import ProfilePage from './pages/private/profile-page/profile-page';
 import CreateTopicPage from './pages/private/create-topic-page';
-import AllTopicsPage from './pages/private/all-topics-page';
+import AllTopicsPage from './pages/private/all-topics-page/all-topics-page';
 import TodayPage from './pages/private/today-page';
-import SingleTopicPage from './pages/private/single-topic-page';
+import SingleTopicPage from './pages/private/single-topic-page/single-topic-page';
 
 function App() {
   const [topics, setTopics] = useState([]);

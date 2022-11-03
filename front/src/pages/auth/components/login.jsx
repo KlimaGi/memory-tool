@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { post } from '../../../plugins/http';
-import Button from '../../../components/button';
+import Button from '../../private/common-components/button';
 
 const Login = () => {
   const emailRef = useRef();

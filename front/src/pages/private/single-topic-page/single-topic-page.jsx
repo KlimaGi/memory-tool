@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { get } from '../../plugins/http';
-import TopicProgressCircles from './components/topic-progress-circles';
+import { useParams, useNavigate } from 'react-router-dom';
+import { get } from '../../../plugins/http';
+import TopicProgressCircles from '../common-components/topic-progress-circles';
+import Button from '../common-components/button';
 
 const SingleTopicPage = () => {
+  const nav = useNavigate();
   const { id } = useParams();
   const [topic, setTopic] = useState(null);
   const [revisionDate, setRevisionDate] = useState('');
@@ -26,22 +28,30 @@ const SingleTopicPage = () => {
   // const revisionDates = topic.data.progress;
   // const progressStep = topic.data.progressStep;
   // const revisionDate = revisionDates[progressStep].slice(0, 3).join('-');
+  const updateRevisionDone = () => {
+    console.log('update done');
+  }
 
+  const edit = () => {
+    console.log('update');
+  }
 
   return (
-    <div>
+    <div className='main'>
       {topic &&
-        <div>
-          Single Post Page
+        <div className='topic-container'>
+          Single Topic Page
           <TopicProgressCircles count={topic.data.progressDone} />
 
           <span>Topic revision date: {revisionDate}</span>
 
           <h3>{topic.data.title}</h3>
           <p>{topic.data.content}</p>
-          <button>Edit</button>
-          <button>Revision Done</button>
-        </div>}
+          <Button func={edit} text="Edit" />
+          <Button func={updateRevisionDone} text='Revision Done' />
+        </div>
+      }
+
     </div>
 
   )
