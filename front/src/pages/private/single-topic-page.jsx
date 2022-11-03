@@ -6,6 +6,7 @@ import TopicProgressCircles from './components/topic-progress-circles';
 const SingleTopicPage = () => {
   const { id } = useParams();
   const [topic, setTopic] = useState(null);
+  const [revisionDate, setRevisionDate] = useState('');
 
   useEffect(() => {
     const singleTopic = async () => {
@@ -13,13 +14,18 @@ const SingleTopicPage = () => {
       const res = await get(`singleTopic/${id}/${secret}`);
       console.log('res-single-topic-page', res);
       setTopic(res);
+
+      const revisionDates = res.data.progress;
+      const progressStep = res.data.progressStep;
+      const reviewDate = revisionDates[progressStep].slice(0, 3).join('-');
+      setRevisionDate(reviewDate);
     };
     singleTopic();
   }, []);
 
-  const revisionDates = topic.data.progress;
-  const progressStep = topic.data.progressStep;
-  const revisionDate = revisionDates[progressStep].slice(0, 3).join('-');
+  // const revisionDates = topic.data.progress;
+  // const progressStep = topic.data.progressStep;
+  // const revisionDate = revisionDates[progressStep].slice(0, 3).join('-');
 
   return (
     <div>
