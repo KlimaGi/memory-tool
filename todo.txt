@@ -4,12 +4,13 @@
 - back corrections
 ~*- connect back to front logic
     * - create topic page
-   ~* - all topics by one user
-         - render to screen
-      - single topic component
-      - single topic progress component
-      - single topic page
+    * - all topics by one user
+         *- render to screen
+      *- single topic component
+      *- single topic progress component
+      *- single topic page
       - update topic
+       *// todo: istaisyti besidubliuojancia info (topicSchema) progressDone - progressStep
 - add cookies
 - add scss modules, improve it 
 - correct styles, make it more simple

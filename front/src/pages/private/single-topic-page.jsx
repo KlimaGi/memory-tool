@@ -16,8 +16,8 @@ const SingleTopicPage = () => {
       setTopic(res);
 
       const revisionDates = res.data.progress;
-      const progressStep = res.data.progressStep;
-      const reviewDate = revisionDates[progressStep].slice(0, 3).join('-');
+      const progressDone = res.data.progressDone;
+      const reviewDate = revisionDates[progressDone].slice(0, 3).join('-');
       setRevisionDate(reviewDate);
     };
     singleTopic();
@@ -27,13 +27,16 @@ const SingleTopicPage = () => {
   // const progressStep = topic.data.progressStep;
   // const revisionDate = revisionDates[progressStep].slice(0, 3).join('-');
 
+
   return (
     <div>
       {topic &&
         <div>
           Single Post Page
-          <TopicProgressCircles count={topic.data.progressStep} />
+          <TopicProgressCircles count={topic.data.progressDone} />
+
           <span>Topic revision date: {revisionDate}</span>
+
           <h3>{topic.data.title}</h3>
           <p>{topic.data.content}</p>
           <button>Edit</button>

@@ -25,11 +25,6 @@ const topicSchema = new Schema({
   progressDone: {
     type: Number,
     required: true
-  },
-  progressStep: {
-    type: Number,
-    required: false,
-    default: -1
   }
 });
 

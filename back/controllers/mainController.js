@@ -68,7 +68,7 @@ module.exports = {
       content,
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
-      progressDone: 0
+      progressDone: -1
     };
 
     const newTopic = new topicSchema(topicData);
