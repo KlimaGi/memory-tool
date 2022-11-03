@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import MainContext from '../../context/main-context';
 import { get } from '../../plugins/http';
+import SingleTopic from './components/single-topic';
 
 const AllTopicsPage = () => {
   const { topics, setTopics } = useContext(MainContext);
@@ -18,6 +19,7 @@ const AllTopicsPage = () => {
   return (
     <div>
       All Topics Page
+      {topics.map((topic, i) => <SingleTopic key={i} topic={topic} />)}
     </div>
   )
 }

@@ -25,9 +25,14 @@ const topicSchema = new Schema({
   progressDone: {
     type: Number,
     required: true
+  },
+  progressStep: {
+    type: Number,
+    required: false,
+    default: -1
   }
 });
 
-const exportUser = mongoose.model("memoTopicSchema", topicSchema);
+const exportUser = mongoose.model("memoTopics", topicSchema);
 
 module.exports = exportUser;

@@ -2,13 +2,20 @@
 *- add strict routes structure
 - add content structure
 - back corrections
-- connect back to front logic
+~*- connect back to front logic
+    * - create topic page
+   ~* - all topics by one user
+         - render to screen
+      - single topic component
+      - single topic progress component
+      - single topic page
+      - update topic
 - add cookies
 - add scss modules, improve it 
 - correct styles, make it more simple
 - make responsive styles
 - add eslint 
-- add tests to node/back modules and middlewares
+- add tests to node/back modules and middlewares (2022-10-28 lesson)
 
 
 -https://www.youtube.com/watch?v=pf6Zhm-PDfQ&ab_channel=TECHIN5MINUTES
