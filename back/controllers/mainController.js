@@ -81,6 +81,12 @@ module.exports = {
     const topics = await topicSchema.find({ userIdSecret: secret });
 
     return sendRes(res, false, "ok-all-posts", topics);
+  },
+  singleTopic: async (req, res) => {
+    const { id } = req.params;
+    const topic = await topicSchema.findOne({ _id: id });
+    console.log('topic', topic);
+    return sendRes(res, false, "ok-all-posts", topic);
   }
 
 }

@@ -13,6 +13,7 @@ import PrivateLayout from './pages/private/components/private-layout';
 import ProfilePage from './pages//private/profile-page';
 import CreateTopicPage from './pages/private/create-topic-page';
 import AllTopicsPage from './pages/private/all-topics-page';
+import TodayPage from './pages/private/today-page';
 import SingleTopicPage from './pages/private/single-topic-page';
 
 function App() {
@@ -40,10 +41,11 @@ function App() {
             </Route>
 
             <Route path='dashboard' element={<PrivateLayout />} >
+              <Route path='today' element={<TodayPage />} />
               <Route path='allTopics' element={<AllTopicsPage />} />
               <Route path='profile' element={<ProfilePage />} />
               <Route path='create' element={<CreateTopicPage />} />
-              <Route path='singleTopic' element={<SingleTopicPage />} />
+              <Route path='singleTopic/:id' element={<SingleTopicPage />} />
             </Route>
 
           </Routes>

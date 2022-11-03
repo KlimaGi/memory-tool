@@ -20,10 +20,10 @@ const Toolbar = () => {
       </div>
 
       <div className='toolbar'>
-
-        <Link to='/dashboard/profile'>Profile</Link>
-        <Link to='/dashboard/create'>Create</Link>
+        <Link to='/dashboard/today'>Today</Link>
         <Link to='/dashboard/allTopics'>All</Link>
+        <Link to='/dashboard/create'>Create</Link>
+        <Link to='/dashboard/profile'>Profile</Link>
         <Button func={logout} text='logout' />
 
       </div>

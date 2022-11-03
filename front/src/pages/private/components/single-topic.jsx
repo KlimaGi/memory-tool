@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TopicProgressCircles from './topic-progress-circles';
 
 const SingleTopic = ({ topic }) => {
-  console.log('topic', topic);
+  const nav = useNavigate();
+
   return (
-    <div className='topic'>
+    <div className='topic' onClick={() => nav(`/dashboard/singleTopic/${topic._id}`)}>
 
       <TopicProgressCircles count={topic.progressStep} />
 
