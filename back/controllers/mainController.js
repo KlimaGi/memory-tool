@@ -87,6 +87,18 @@ module.exports = {
     const topic = await topicSchema.findOne({ _id: id });
     console.log('topic', topic);
     return sendRes(res, false, "ok-all-posts", topic);
+  },
+  updateProgress: async (req, res) => {
+    const { id } = req.params;
+
+    const topicData = await topicSchema.findOneAndUpdate(
+      { _id: id },
+      { $inc: { progressDone: 1 } },
+      { new: true }
+    );
+
+    await topicData.save();
+    return sendRes(res, false, "ok-all-posts", { progressNum: topicData.progressDone });
   }
 
 }

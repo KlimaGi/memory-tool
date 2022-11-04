@@ -14,7 +14,7 @@ import ProfilePage from './pages/private/profile-page/profile-page';
 import CreateTopicPage from './pages/private/create-topic-page';
 import AllTopicsPage from './pages/private/all-topics-page/all-topics-page';
 import TodayPage from './pages/private/today-page';
-import SingleTopicPage from './pages/private/single-topic-page/single-topic-page';
+import SingleTopicPage from './pages/private/single-topic-page.jsx';
 
 function App() {
   const [topics, setTopics] = useState([]);

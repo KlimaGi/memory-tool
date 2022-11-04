@@ -29,6 +29,10 @@
 .fd-column{
   flex-direction: column;
 }
+
+.m-t-b{
+  margin: 1rem 0.3rem;
+}
 .side {
   width: 12rem;
   margin: 1rem;
