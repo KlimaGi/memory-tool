@@ -1,3 +1,1 @@
-module.exports = (res, error, message, data) => {
-  return res.send({ error, message, data });
-}
+module.exports = (res, error, message, data) => res.send({ error, message, data });

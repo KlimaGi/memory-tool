@@ -4,7 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run back-end in the development mode:
+
+### `npm run dev`
+
+You can run back-end:
+
+### `npm run start`
+
+In the project directory, you can run front:
 
 ### `yarn start`
 

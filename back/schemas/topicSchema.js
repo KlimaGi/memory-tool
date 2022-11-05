@@ -1,33 +1,34 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 const topicSchema = new Schema({
   userIdSecret: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   content: {
     type: String,
-    required: true
+    required: true,
   },
   startDay: {
     type: [Number],
-    required: true
+    required: true,
   },
   progress: {
     type: [[Number], [Number], [Number], [Number], [Number]],
-    required: true
+    required: true,
   },
   progressDone: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 });
 
-const exportUser = mongoose.model("memoTopics", topicSchema);
+const exportUser = mongoose.model('memoTopics', topicSchema);
 
 module.exports = exportUser;

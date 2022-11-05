@@ -22,3 +22,9 @@
 -https://www.youtube.com/watch?v=pf6Zhm-PDfQ&ab_channel=TECHIN5MINUTES
 https://www.youtube.com/watch?v=7r4xVDI2vho&ab_channel=TraversyMedia
 https://www.youtube.com/watch?v=zRo2tvQpus8&ab_channel=TraversyMedia
+
+//soccets 
+https://www.youtube.com/watch?v=NU-HfZY3ATQ
+https://www.youtube.com/watch?v=ZKEqqIO7n-k
+
+// front test examples --> test ux inputs, buttons, functions

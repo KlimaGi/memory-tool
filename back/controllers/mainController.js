@@ -1,8 +1,9 @@
-const keygen = require("keygenerator");
+/* eslint-disable no-console */
+const keygen = require('keygenerator');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
-const userSchema = require('../schemas/userSchema');
-const topicSchema = require('../schemas/topicSchema');
+const UserSchema = require('../schemas/userSchema');
+const TopicSchema = require('../schemas/topicSchema');
 const sendRes = require('../modules/universalRes');
 
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
     const hash = await bcrypt.hash(password, 15);
 
     const secret = keygen._();
-    const newUser = new userSchema({ ...req.body, password: hash, secret });
+    const newUser = new UserSchema({ ...req.body, password: hash, secret });
     console.log('newUser', newUser);
 
     await newUser.save();
@@ -22,8 +23,8 @@ module.exports = {
   },
   login: async (req, res) => {
     const { email, password } = req.body;
-    //todo: create middle to check if user exist
-    const userExists = await userSchema.findOne({ email });
+    // todo: create middle to check if user exist
+    const userExists = await UserSchema.findOne({ email });
 
     if (userExists) {
       const compare = await bcrypt.compare(password, userExists.password);
@@ -31,7 +32,7 @@ module.exports = {
       if (compare) return sendRes(res, false, 'all good', { secret: userExists.secret });
     }
 
-    return sendRes(res, true, "bad credentials", null);
+    return sendRes(res, true, 'bad credentials', null);
   },
   userData: async (req, res) => {
     const { user } = req.body;
@@ -44,10 +45,10 @@ module.exports = {
   setPhoto: async (req, res) => {
     const { secret, photo } = req.body;
 
-    const userData = await userSchema.findOneAndUpdate(
-      { secret: secret },
-      { $set: { photo: photo } },
-      { new: true }
+    const userData = await UserSchema.findOneAndUpdate(
+      { secret },
+      { $set: { photo } },
+      { new: true },
     );
 
     return sendRes(res, false, 'ok-photo', { photo: userData.photo });
@@ -68,37 +69,37 @@ module.exports = {
       content,
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
-      progressDone: -1
+      progressDone: -1,
     };
 
-    const newTopic = new topicSchema(topicData);
+    const newTopic = new TopicSchema(topicData);
     await newTopic.save();
 
-    return sendRes(res, false, "ok-post", topicData);
+    return sendRes(res, false, 'ok-post', topicData);
   },
   allTopics: async (req, res) => {
     const { secret } = req.params;
-    const topics = await topicSchema.find({ userIdSecret: secret });
+    const topics = await TopicSchema.find({ userIdSecret: secret });
 
-    return sendRes(res, false, "ok-all-posts", topics);
+    return sendRes(res, false, 'ok-all-posts', topics);
   },
   singleTopic: async (req, res) => {
     const { id } = req.params;
-    const topic = await topicSchema.findOne({ _id: id });
+    const topic = await TopicSchema.findOne({ _id: id });
     console.log('topic', topic);
-    return sendRes(res, false, "ok-all-posts", topic);
+    return sendRes(res, false, 'ok-all-posts', topic);
   },
   updateProgress: async (req, res) => {
     const { id } = req.params;
 
-    const topicData = await topicSchema.findOneAndUpdate(
+    const topicData = await TopicSchema.findOneAndUpdate(
       { _id: id },
       { $inc: { progressDone: 1 } },
-      { new: true }
+      { new: true },
     );
 
     await topicData.save();
-    return sendRes(res, false, "ok-all-posts", { progressNum: topicData.progressDone });
-  }
+    return sendRes(res, false, 'ok-all-posts', { progressNum: topicData.progressDone });
+  },
 
-}
+};
