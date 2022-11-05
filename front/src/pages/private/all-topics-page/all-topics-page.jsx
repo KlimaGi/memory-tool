@@ -1,9 +1,11 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
+
 import React, { useContext, useEffect } from 'react';
 import MainContext from '../../../context/main-context';
 import { get } from '../../../plugins/http';
 import SingleTopic from './components/single-topic';
 
-const AllTopicsPage = () => {
+function AllTopicsPage() {
   const { topics, setTopics } = useContext(MainContext);
   useEffect(() => {
     const allTopics = async () => {
@@ -17,9 +19,9 @@ const AllTopicsPage = () => {
   return (
     <div>
       All Topics Page
-      {topics.map((topic, i) => <SingleTopic key={i} topic={topic} />)}
+      {topics.map((topic) => <SingleTopic key={topic._id} topic={topic} />)}
     </div>
-  )
+  );
 }
 
 export default AllTopicsPage;

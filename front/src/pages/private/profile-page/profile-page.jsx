@@ -1,16 +1,14 @@
 import React from 'react';
 import Profile from './components/profile';
 
-const ProfilePage = () => {
-
-
+function ProfilePage() {
   return (
-    <div className='side'>
+    <div className="side">
 
       <Profile />
 
     </div>
-  )
+  );
 }
 
 export default ProfilePage;

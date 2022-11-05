@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import './styles.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContext from './context/main-context';
 
 import PublicPage from './pages/public-page';
@@ -14,7 +15,7 @@ import ProfilePage from './pages/private/profile-page/profile-page';
 import CreateTopicPage from './pages/private/create-topic-page';
 import AllTopicsPage from './pages/private/all-topics-page/all-topics-page';
 import TodayPage from './pages/private/today-page';
-import SingleTopicPage from './pages/private/single-topic-page.jsx';
+import SingleTopicPage from './pages/private/single-topic-page';
 
 function App() {
   const [topics, setTopics] = useState([]);
@@ -24,8 +25,8 @@ function App() {
     topics,
     setTopics,
     user,
-    setUser
-  }
+    setUser,
+  };
 
   return (
     <div>
@@ -33,19 +34,19 @@ function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<PublicPage />} />
+            <Route path="/" element={<PublicPage />} />
 
-            <Route path='auth' element={<AuthLayout />}>
-              <Route path='login' element={<LoginPage />} />
-              <Route path='register' element={<RegisterPage />} />
+            <Route path="auth" element={<AuthLayout />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
             </Route>
 
-            <Route path='dashboard' element={<PrivateLayout />} >
-              <Route path='today' element={<TodayPage />} />
-              <Route path='allTopics' element={<AllTopicsPage />} />
-              <Route path='profile' element={<ProfilePage />} />
-              <Route path='create' element={<CreateTopicPage />} />
-              <Route path='singleTopic/:id' element={<SingleTopicPage />} />
+            <Route path="dashboard" element={<PrivateLayout />}>
+              <Route path="today" element={<TodayPage />} />
+              <Route path="allTopics" element={<AllTopicsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="create" element={<CreateTopicPage />} />
+              <Route path="singleTopic/:id" element={<SingleTopicPage />} />
             </Route>
 
           </Routes>

@@ -1,12 +1,22 @@
+/* eslint-disable react/prop-types */
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopicProgressCircles from '../../common-components/topic-progress-circles';
 
-const SingleTopic = ({ topic }) => {
+function SingleTopic({ topic }) {
   const nav = useNavigate();
+  const handleDivClick = () => nav(`/dashboard/singleTopic/${topic._id}`);
 
   return (
-    <div className='topic' onClick={() => nav(`/dashboard/singleTopic/${topic._id}`)}>
+    <div
+      role="button"
+      tabIndex={0}
+      className="topic"
+      onClick={handleDivClick}
+      onKeyDown={handleDivClick}
+    >
 
       <TopicProgressCircles count={topic.progressDone} />
 
@@ -14,7 +24,7 @@ const SingleTopic = ({ topic }) => {
       <p>{topic.content}</p>
 
     </div>
-  )
+  );
 }
 
 export default SingleTopic;

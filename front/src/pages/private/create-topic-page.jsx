@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
-import { post } from '../../plugins/http';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { post } from '../../plugins/http';
 
-const CreateTopicPage = () => {
+function CreateTopicPage() {
   const titleRef = useRef();
   const contentRef = useRef();
   const nav = useNavigate();
@@ -19,14 +19,13 @@ const CreateTopicPage = () => {
     nav('/dashboard/allTopics');
   };
 
-
   return (
-    <div className='center'>
-      <input ref={titleRef} type='text' placeholder='title' className='input' />
-      <textarea ref={contentRef} type='text' placeholder='topic content' rows="6" cols="20" className='input' />
-      <button onClick={createTopic} className='button'>Create</button>
+    <div className="center">
+      <input ref={titleRef} type="text" placeholder="title" className="input" />
+      <textarea ref={contentRef} type="text" placeholder="topic content" rows="6" cols="20" className="input" />
+      <button onClick={createTopic} className="button" type="button">Create</button>
     </div>
-  )
+  );
 }
 
 export default CreateTopicPage;

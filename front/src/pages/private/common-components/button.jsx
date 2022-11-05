@@ -1,9 +1,10 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React from 'react';
 
-const Button = ({ func, text }) => {
+function Button({ func, text }) {
   return (
-    <button onClick={func} className='button'>{text}</button>
-  )
+    <button onClick={func} className="button" type="button">{text}</button>
+  );
 }
 
 export default Button;
