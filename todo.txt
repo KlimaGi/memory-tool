@@ -16,6 +16,8 @@
 - correct styles, make it more simple
 - make responsive styles
 - add eslint 
+        *- eslint back
+        *- eslint front
 - add tests to node/back modules and middlewares (2022-10-28 lesson)
 
 
