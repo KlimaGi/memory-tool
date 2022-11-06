@@ -1,0 +1,41 @@
+@import "../../../../styles/variables";
+
+.side {
+  width: 12rem;
+  margin: 1rem;
+  border: 1px solid $color-semi-light;
+}
+
+.profile-img {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid $color-semi-light;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.show-container {
+  position: relative;
+  height: 3rem;
+  width: 16rem;
+  margin: 0.5rem 0;
+}
+
+.edit-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid $color-semi-light;
+  background-color: $color-semi-light;
+  position: absolute;
+  top: -56px;
+  right: 78px;
+}
+
+.input {
+  width: 15.4rem;
+  padding: 1rem;
+  margin: 0.3rem;
+  border: 1px solid $color-semi-light;
+}

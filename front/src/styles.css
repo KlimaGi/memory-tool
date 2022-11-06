@@ -1,21 +1,6 @@
-
-.side {
-  width: 12rem;
-  margin: 1rem;
-}
-
-
 .avatar-img{
   height: 1rem;
   width: 1rem;
-}
-
-
-
-.input {
-  padding: 1rem;
-  margin: 0.3rem;
-  box-sizing: border-box;
 }
 
 
@@ -37,14 +22,3 @@
 .topic img {
   width: 100%;
 }
-
-.profile-img{
-  width: 10rem;
-  height: 10rem;
-  border: 2px solid var(--semi-light);
-  object-fit: cover;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-

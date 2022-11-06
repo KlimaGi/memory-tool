@@ -1,10 +1,15 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, {
+  useRef, useEffect, useContext, useState,
+} from 'react';
 import { get, post } from '../../../../plugins/http';
 import MainContext from '../../../../context/main-context';
+import Button from '../../common-components/button';
+import styles from './profile.module.scss';
 
 function Profile() {
   const { user, setUser } = useContext(MainContext);
   const photoRef = useRef();
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const userData = async () => {
@@ -29,18 +34,42 @@ function Profile() {
       setUser(userCopy);
     }
     console.log('res-front', res);
+    setShow(!show);
   };
+
+  const handleShow = () => setShow(!show);
 
   return (
     <div>
-      profile
       {
         user
         && (
-          <div className="d-flex fd-column side">
-            <img src={user.photo} alt="" className="profile-img" />
-            <button onClick={changePhoto} type="button">change photo</button>
-            <input ref={photoRef} type="text" placeholder="photo url" />
+          <div className={`d-flex fd-column ${styles.side}`}>
+            <img src={user.photo} alt="" className={styles['profile-img']} />
+
+            <div className={styles['show-container']}>
+              <input
+                onClick={handleShow}
+                type="button"
+                className={styles['edit-btn']}
+              />
+
+              {!show && (
+                <>
+                  <input
+                    ref={photoRef}
+                    type="text"
+                    placeholder="add photo url"
+                    className={styles.input}
+                  />
+                  <Button
+                    type="button"
+                    func={changePhoto}
+                    text="Submit"
+                  />
+                </>
+              )}
+            </div>
           </div>
         )
       }
