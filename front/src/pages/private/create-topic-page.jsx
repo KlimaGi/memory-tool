@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { post } from '../../plugins/http';
+import Button from './common-components/button';
 
 function CreateTopicPage() {
   const titleRef = useRef();
@@ -21,9 +22,11 @@ function CreateTopicPage() {
 
   return (
     <div className="center">
-      <input ref={titleRef} type="text" placeholder="title" className="input" />
-      <textarea ref={contentRef} type="text" placeholder="topic content" rows="6" cols="20" className="input" />
-      <button onClick={createTopic} className="button" type="button">Create</button>
+      <div className="center topic-container">
+        <input ref={titleRef} type="text" placeholder="title" className="input" />
+        <textarea ref={contentRef} type="text" placeholder="topic content" rows="6" cols="20" className="input" />
+        <Button func={createTopic} className="button" type="button" text="Create" />
+      </div>
     </div>
   );
 }
