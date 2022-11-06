@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
-import './styles.css';
+// import './styles.css';
+import './styles/index.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContext from './context/main-context';
 

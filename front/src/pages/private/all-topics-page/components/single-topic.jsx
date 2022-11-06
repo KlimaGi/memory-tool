@@ -4,6 +4,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopicProgressCircles from '../../common-components/topic-progress-circles';
+import styles from './single-topic.module.scss';
 
 function SingleTopic({ topic }) {
   const nav = useNavigate();
@@ -13,7 +14,7 @@ function SingleTopic({ topic }) {
     <div
       role="button"
       tabIndex={0}
-      className="topic"
+      className={styles.topic}
       onClick={handleDivClick}
       onKeyDown={handleDivClick}
     >
