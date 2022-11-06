@@ -13,3 +13,35 @@
     border-style: none;
   }
 }
+
+.toolbar-container {
+  background-color: $color-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.toolbar {
+  background-color: $color-light;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  a {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+.circle {
+  height: 1rem;
+  width: 1rem;
+  border: 2px solid $color-semi-light;
+  border-radius: 50%;
+  margin: 0.5rem 0.2rem;
+}
+
+.fill {
+  background-color: $color-semi-light;
+}

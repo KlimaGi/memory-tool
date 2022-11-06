@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MainContext from '../../../context/main-context';
 import Button from './button';
+import styles from './common-styles.module.scss';
 
 function Toolbar() {
   const { user } = useContext(MainContext);
@@ -14,12 +15,12 @@ function Toolbar() {
   };
 
   return (
-    <div className="toolbar-container">
+    <div className={styles['toolbar-container']}>
       <div>
         <img src="/assets/logo-white-sm.png" alt="logo" />
       </div>
 
-      <div className="toolbar">
+      <div className={styles.toolbar}>
         <Link to="/dashboard/today">Today</Link>
         <Link to="/dashboard/allTopics">All</Link>
         <Link to="/dashboard/create">Create</Link>
