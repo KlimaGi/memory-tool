@@ -1,0 +1,42 @@
+@import '../../../../styles/variables';
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-layer {
+  height: 100vh;
+  background-image: url("../../../../assets/image-bg.png");
+  background-size: cover;
+
+  @extend .center;
+  flex-direction: column;
+}
+
+.logo-container {
+  width: 30rem;
+  padding: 2rem 1rem 1rem;
+  background-color: $color-light-opacity;
+
+  @extend .center;
+}
+
+
+.form {
+  input {
+    padding: 0.8rem;
+    margin: 0.3rem;
+    border-style: none;
+
+    &:focus-visible {
+      outline: none;
+      border-bottom: 1px solid $color-dark;
+    }
+  }
+}
+
+.error-msg {
+  color: $color-red;
+}

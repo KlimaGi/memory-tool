@@ -22,7 +22,7 @@ const {
 } = require('../controllers/mainController');
 
 router.post('/register', emailValid, passwordValid, userValid, register);
-router.post('/login', login);
+router.post('/login', emailValid, login);
 router.get('/userProfile/:secret', secretValid, userData);
 router.post('/setPhoto', secretValid, setPhoto);
 

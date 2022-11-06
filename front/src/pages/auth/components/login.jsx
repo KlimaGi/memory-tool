@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { post } from '../../../plugins/http';
 import Button from '../../private/common-components/button';
+import styles from './styles/auth-style.module.scss';
 
 function Login() {
   const emailRef = useRef();
@@ -17,19 +18,19 @@ function Login() {
     };
     const res = await post('login', loginData);
 
-    localStorage.setItem('secret', res.data.secret);
     if (res.error) return setError(res.message);
+    localStorage.setItem('secret', res.data.secret);
 
     return nav('/dashboard/profile');
   };
 
   return (
-    <div className="container form">
+    <div className={`container ${styles.form}`}>
       <input ref={emailRef} type="text" placeholder="email" />
       <input ref={passwordRef} type="text" placeholder="password" />
 
       <Button func={login} text="login" />
-      <span className="error-msg">{error}</span>
+      <span className={styles['error-msg']}>{error}</span>
       <p>
         Don't have an account, let's
         <Link to="/auth/register">Register</Link>

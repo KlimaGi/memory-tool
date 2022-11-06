@@ -1,23 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './public-page-style.module.scss';
 
 function PublicPage() {
   return (
-    <div className="auth-layer center">
+    <div className={`${styles['auth-layer']} center`}>
       <div className="center">
 
         <div>
           <img src="/assets/logo-white-sm.png" alt="logo" />
         </div>
 
-        <Link className="button-link" to="/auth/login">
-          <div className="button-link">
+        <Link className={styles['button-link']} to="/auth/login">
+          <div className={styles['button-link']}>
             Login
           </div>
         </Link>
 
-        <Link className="button-link" to="/auth/register">
-          <div className="button-link">
+        <Link className={styles['button-link']} to="/auth/register">
+          <div className={styles['button-link']}>
             Register
           </div>
         </Link>

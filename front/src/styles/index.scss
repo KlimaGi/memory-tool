@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;1,400&display=swap');
-@import 'variables';
+@import './variables';
 
 * {
   padding: 0;
@@ -32,4 +32,19 @@ body {
 
 .m-t-b {
   margin: 1rem 0.3rem;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 30rem;
+  padding: 1rem 0 4rem;
+  background-color: $color-light-opacity;
+
+  @extend .center;
 }

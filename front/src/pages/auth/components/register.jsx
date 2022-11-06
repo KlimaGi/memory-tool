@@ -2,6 +2,8 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { post } from '../../../plugins/http';
+import Button from '../../private/common-components/button';
+import styles from './styles/auth-style.module.scss';
 
 function Register() {
   const emailRef = useRef();
@@ -29,13 +31,13 @@ function Register() {
   };
 
   return (
-    <div className="container form">
+    <div className={`container ${styles.form}`}>
       <input ref={emailRef} type="text" placeholder="email" />
       <input ref={passwordRef} type="text" placeholder="password" />
       <input ref={password2Ref} type="text" placeholder="repeat password" />
 
-      <button className="button" onClick={register} type="button">register</button>
-      <span className="error-msg">{error}</span>
+      <Button func={register} text="register" />
+      <span className={styles['error-msg']}>{error}</span>
       <p>
         If you already registered, let's
         <Link to="/auth/login">Login</Link>

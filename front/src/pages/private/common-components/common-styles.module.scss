@@ -1,0 +1,15 @@
+@import '../../../styles/variables';
+
+.button {
+  padding: 1rem;
+  margin: 0.3rem;
+  box-sizing: border-box;
+  border-style: none;
+  width: 15.4rem;
+  background-color: $color-light;
+
+  &:hover {
+    background-color: $color-semi-light;
+    border-style: none;
+  }
+}
