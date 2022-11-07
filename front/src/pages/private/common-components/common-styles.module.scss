@@ -1,11 +1,15 @@
 @import '../../../styles/variables';
 
-.button {
+.logo {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.button-link {
   padding: 1rem;
-  margin: 0.3rem;
   box-sizing: border-box;
   border-style: none;
-  width: 15.4rem;
   background-color: $color-light;
 
   &:hover {
@@ -13,6 +17,13 @@
     border-style: none;
   }
 }
+
+.button {
+  @extend .button-link;
+  width: 15.4rem;
+
+}
+
 
 .toolbar-container {
   background-color: $color-light;
@@ -31,7 +42,19 @@
   a {
     margin: 1rem;
     padding: 1rem;
+    text-decoration: none;
+
+    &:active {
+      background-color: $color-semi-light;
+      border-radius: 50%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+      justify-content: space-around;
+    }
   }
+
 }
 
 .circle {

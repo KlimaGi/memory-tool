@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from 'react';
 import MainContext from '../../../context/main-context';
 import { get } from '../../../plugins/http';
 import SingleTopic from './components/single-topic';
+import styles from './components/single-topic.module.scss';
 
 function AllTopicsPage() {
   const { topics, setTopics } = useContext(MainContext);
@@ -17,8 +18,7 @@ function AllTopicsPage() {
   }, []);
 
   return (
-    <div>
-      All Topics Page
+    <div className={styles['topics-container']}>
       {topics.map((topic) => <SingleTopic key={topic._id} topic={topic} />)}
     </div>
   );

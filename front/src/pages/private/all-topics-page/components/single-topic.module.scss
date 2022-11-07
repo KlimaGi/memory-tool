@@ -1,9 +1,19 @@
 @import '../../../../styles/variables';
 
 .topic {
-  width: 25rem;
+  width: 100%;
   background-color: $color-very-opacity;
   border: 1px solid $color-light;
-  margin: 1rem;
+  margin: 1rem 1rem 0;
   padding: 1rem;
+
+}
+
+.topics-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
 }

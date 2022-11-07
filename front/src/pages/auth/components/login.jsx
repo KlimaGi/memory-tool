@@ -21,7 +21,7 @@ function Login() {
     if (res.error) return setError(res.message);
     localStorage.setItem('secret', res.data.secret);
 
-    return nav('/dashboard/profile');
+    return nav('/dashboard/allTopics');
   };
 
   return (
