@@ -8,6 +8,7 @@
 
 .auth-layer {
   height: 100vh;
+
   background-image: url("../../../../assets/image-bg.png");
   background-size: cover;
 
@@ -21,10 +22,25 @@
   background-color: $color-light-opacity;
 
   @extend .center;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 1rem;
+    width: 100%;
+  }
 }
 
-
 .form {
+  background-color: $color-light-opacity;
+  @extend .center;
+  flex-direction: column;
+  width: 30rem;
+  padding: 1rem 1rem 2rem;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 1rem;
+    width: 100vw;
+  }
+
   input {
     padding: 0.8rem;
     margin: 0.3rem;
@@ -34,6 +50,12 @@
       outline: none;
       border-bottom: 1px solid $color-dark;
     }
+  }
+
+  a {
+    padding: 0.1rem 0.3rem;
+    border-bottom: 1px solid $color-dark;
+    text-decoration: none;
   }
 }
 

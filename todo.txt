@@ -10,11 +10,14 @@
       *- single topic progress component
       *- single topic page
       - update topic
+      - profile data with progress bar 
+      - today page with filtered data
+      
        *// todo: istaisyti besidubliuojancia info (topicSchema) progressDone - progressStep
 - add cookies
 *- add scss modules, improve it 
 *- correct styles, make it more simple
-- make responsive styles
+*- make responsive styles
 *- add eslint 
         *- eslint back
         *- eslint front

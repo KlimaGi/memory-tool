@@ -47,6 +47,7 @@ body {
   background-color: $color-light-opacity;
 
   @extend .center;
+
 }
 
 .input {
@@ -59,6 +60,12 @@ body {
   width: 100%;
   background-color: $color-very-opacity;
   border: 1px solid $color-light;
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

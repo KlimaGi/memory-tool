@@ -21,9 +21,8 @@
 .button {
   @extend .button-link;
   width: 15.4rem;
-
+  margin-bottom: 1rem;
 }
-
 
 .toolbar-container {
   background-color: $color-light;

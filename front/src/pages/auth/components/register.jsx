@@ -31,7 +31,7 @@ function Register() {
   };
 
   return (
-    <div className={`container ${styles.form}`}>
+    <div className={styles.form}>
       <input ref={emailRef} type="text" placeholder="email" />
       <input ref={passwordRef} type="text" placeholder="password" />
       <input ref={password2Ref} type="text" placeholder="repeat password" />

@@ -52,7 +52,7 @@ function SingleTopicPage() {
   };
 
   return (
-    <div className="main">
+    <div>
       {
         topic
         && (
@@ -73,9 +73,10 @@ function SingleTopicPage() {
             <h3 className="m-t-b">{topic.title}</h3>
             <p className="m-t-b">{topic.content}</p>
 
-            <Button func={update} text="Edit" />
-
-            {progressNum < 4 && <Button func={setNewRevisionDate} text="Revision Done" />}
+            <div className="button-container">
+              <Button func={update} text="Edit" />
+              {progressNum < 4 && <Button func={setNewRevisionDate} text="Revision Done" />}
+            </div>
 
           </div>
         )
