@@ -39,7 +39,7 @@ function SingleTopicPage() {
       setRevisionDate(reviewDateStr);
     };
     singleTopic();
-  }, []);
+  }, [showUpdateForm]);
 
   const setNewRevisionDate = async () => {
     const res = await get(`updateProgress/${id}`);
@@ -91,7 +91,11 @@ function SingleTopicPage() {
       }
       {
         showUpdateForm && (
-          <UpdateTopic topic={topic} setClose={() => setShowUpdateForm()} />
+          <UpdateTopic
+            topic={topic}
+            setTopic={() => setTopic()}
+            setClose={() => setShowUpdateForm()}
+          />
         )
       }
     </div>

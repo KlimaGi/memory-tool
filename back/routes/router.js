@@ -19,6 +19,7 @@ const {
   allTopics,
   singleTopic,
   updateProgress,
+  updateTopic,
 } = require('../controllers/mainController');
 
 router.post('/register', emailValid, passwordValid, userValid, register);
@@ -30,5 +31,6 @@ router.post('/topicData', secretValid, topicValid, createTopic);
 router.get('/allTopics/:secret', secretValid, allTopics);
 router.get('/singleTopic/:id/:secret', secretValid, singleTopic);
 router.get('/updateProgress/:id', updateProgress);
+router.post('/updateTopic', secretValid, updateTopic);
 
 module.exports = router;

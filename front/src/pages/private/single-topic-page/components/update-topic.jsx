@@ -1,24 +1,29 @@
 /* eslint-disable react/prop-types */
 import React, { useRef } from 'react';
-// import { post } from '../../../../plugins/http';
+import { post } from '../../../../plugins/http';
 import Button from '../../common-components/button';
 
-function UpdateTopic({ topic, setClose }) {
-  console.log('topic', topic);
+function UpdateTopic({ topic, setTopic, setClose }) {
   const titleRef = useRef(topic.title);
   const contentRef = useRef();
 
-  const updateTopic = () => {
+  const updateTopic = async () => {
     const topicData = {
+      id: topic._id,
       secret: localStorage.getItem('secret'),
       title: titleRef.current.value,
       content: contentRef.current.value,
     };
-    console.log('topicData', topicData);
-    // todo: add update pist route, controller
 
-    // const res = await post('topicData', topicData);
-    // console.log('topicData-res', res);
+    const res = await post('updateTopic', topicData);
+
+    if (!res.error) {
+      const topicCopy = { ...topic };
+      topicCopy.title = res.data.title;
+      topicCopy.content = res.data.content;
+
+      setTopic(topicCopy);
+    }
     setClose(false);
   };
 

@@ -81,13 +81,13 @@ module.exports = {
     const { secret } = req.params;
     const topics = await TopicSchema.find({ userIdSecret: secret });
 
-    return sendRes(res, false, 'ok-all-posts', topics);
+    return sendRes(res, false, 'ok-all-topics', topics);
   },
   singleTopic: async (req, res) => {
     const { id } = req.params;
     const topic = await TopicSchema.findOne({ _id: id });
     console.log('topic', topic);
-    return sendRes(res, false, 'ok-all-posts', topic);
+    return sendRes(res, false, 'ok-topic', topic);
   },
   updateProgress: async (req, res) => {
     const { id } = req.params;
@@ -101,5 +101,20 @@ module.exports = {
     await topicData.save();
     return sendRes(res, false, 'ok-all-posts', { progressNum: topicData.progressDone });
   },
+  updateTopic: async (req, res) => {
+    const {
+      id, title, content,
+    } = req.body;
 
+    const topicData = await TopicSchema.findOneAndUpdate(
+      { _id: id },
+      { $set: { title, content } },
+      { new: true },
+    );
+    await topicData.save();
+
+    return sendRes(res, false, 'ok-update-topic', {
+      topic: id, title, content,
+    });
+  },
 };
