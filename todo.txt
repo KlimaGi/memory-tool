@@ -12,7 +12,7 @@
       - update topic
       - profile data with progress bar 
       - today page with filtered data
-      
+       
        *// todo: istaisyti besidubliuojancia info (topicSchema) progressDone - progressStep
 - add cookies
 *- add scss modules, improve it 

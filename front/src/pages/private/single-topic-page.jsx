@@ -8,8 +8,8 @@ function SingleTopicPage() {
   // const nav = useNavigate();
   const { id } = useParams();
   const [topic, setTopic] = useState(null);
-  const [revisionDate, setRevisionDate] = useState('');
   const [progressNum, setProgressNum] = useState(0);
+  const [revisionDate, setRevisionDate] = useState('');
 
   const dateFormat = (arr) => {
     const dateArr = arr;
@@ -17,20 +17,23 @@ function SingleTopicPage() {
     if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
     return dateArr.slice(0, 3).join('-');
   };
-  // todo: make func revision date correction
+  const dateStr = (revisionDates, progressDone) => {
+    const reviewDate = revisionDates[progressDone];
+    reviewDate[1] += 1;
+    return dateFormat(reviewDate);
+  };
 
   useEffect(() => {
     const singleTopic = async () => {
       const secret = localStorage.getItem('secret');
       const res = await get(`singleTopic/${id}/${secret}`);
+
       setTopic(res.data);
 
-      const revisionDates = res.data.progress;
       const { progressDone } = res.data;
       setProgressNum(progressDone);
-      const reviewDate = revisionDates[progressDone];
-      reviewDate[1] += 1;
-      const reviewDateStr = dateFormat(reviewDate);
+
+      const reviewDateStr = dateStr(res.data.progress, progressDone);
       setRevisionDate(reviewDateStr);
     };
     singleTopic();
@@ -42,8 +45,12 @@ function SingleTopicPage() {
     if (!res.error) {
       const topicCopy = { ...topic };
       topicCopy.progressDone = Number(res.data.progressNum);
+
       setTopic(topicCopy);
-      setProgressNum(Number(res.data.progressNum));
+      setProgressNum(topicCopy.progressDone);
+
+      const reviewDateStr = dateStr(topicCopy.progress, topicCopy.progressDone);
+      setRevisionDate(reviewDateStr);
     }
   };
 
