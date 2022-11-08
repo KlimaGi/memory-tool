@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { get } from '../../plugins/http';
-import TopicProgressCircles from './common-components/topic-progress-circles';
-import Button from './common-components/button';
+import { get } from '../../../plugins/http';
+import TopicProgressCircles from '../common-components/topic-progress-circles';
+import Button from '../common-components/button';
+import UpdateTopic from './components/update-topic';
 
 function SingleTopicPage() {
-  // const nav = useNavigate();
   const { id } = useParams();
   const [topic, setTopic] = useState(null);
   const [progressNum, setProgressNum] = useState(0);
   const [revisionDate, setRevisionDate] = useState('');
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  const dateFormat = (arr) => {
-    const dateArr = arr;
-    if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
-    if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
-    return dateArr.slice(0, 3).join('-');
-  };
   const dateStr = (revisionDates, progressDone) => {
+    const dateFormat = (arr) => {
+      const dateArr = arr;
+      if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
+      if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
+      return dateArr.slice(0, 3).join('-');
+    };
+
     const reviewDate = revisionDates[progressDone];
     reviewDate[1] += 1;
     return dateFormat(reviewDate);
@@ -55,7 +57,7 @@ function SingleTopicPage() {
   };
 
   const update = () => {
-    console.log('update');
+    setShowUpdateForm(!showUpdateForm);
   };
 
   return (
@@ -64,7 +66,6 @@ function SingleTopicPage() {
         topic
         && (
           <div className="topic-container">
-
             <TopicProgressCircles count={progressNum} />
             {
               progressNum < 4
@@ -82,10 +83,15 @@ function SingleTopicPage() {
 
             <div className="button-container">
               <Button func={update} text="Edit" />
-              {progressNum < 4 && <Button func={setNewRevisionDate} text="Revision Done" />}
+              {progressNum < 4 && <Button func={setNewRevisionDate} text="Revision done" />}
             </div>
 
           </div>
+        )
+      }
+      {
+        showUpdateForm && (
+          <UpdateTopic topic={topic} setClose={() => setShowUpdateForm()} />
         )
       }
     </div>
