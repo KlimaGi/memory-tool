@@ -2,15 +2,17 @@
 *- add strict routes structure
 *- add content structure
 *- back corrections
-~*- connect back to front logic
+*- connect back to front logic
     * - create topic page
     * - all topics by one user
          *- render to screen
       *- single topic component
       *- single topic progress component
       *- single topic page
-      - update topic
-      - profile data with progress bar 
+      *- update topic
+      *- profile data with progress bar 
+         - separate profile section & progress-bar section
+         - add filtered data % result to progress-bar
       - today page with filtered data
        
        *// todo: istaisyti besidubliuojancia info (topicSchema) progressDone - progressStep
