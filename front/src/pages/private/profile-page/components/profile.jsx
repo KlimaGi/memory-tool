@@ -11,7 +11,7 @@ function Profile() {
   const { user, setUser } = useContext(MainContext);
   const photoRef = useRef();
   const [show, setShow] = useState(true);
-  const arr = [0, 1, 2, 3, 4];
+  const arr = [9, 21, 23, 40, 10];
 
   useEffect(() => {
     const userData = async () => {
@@ -78,7 +78,7 @@ function Profile() {
 
       <section className={styles['bar-side']}>
         {
-          arr.map((num) => <ProgressBar progress={num} quantity={36} key={num} />)
+          arr.map((num, index) => <ProgressBar progress={index} quantity={num} key={num} />)
         }
       </section>
     </div>
