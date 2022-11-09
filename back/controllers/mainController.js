@@ -36,10 +36,7 @@ module.exports = {
   },
   userData: async (req, res) => {
     const { user } = req.body;
-    console.log('user', user);
-
     // const userExists = await userSchema.findOne({ secret });
-
     return sendRes(res, false, 'all good', user);
   },
   setPhoto: async (req, res) => {
@@ -86,7 +83,6 @@ module.exports = {
   singleTopic: async (req, res) => {
     const { id } = req.params;
     const topic = await TopicSchema.findOne({ _id: id });
-    console.log('topic', topic);
     return sendRes(res, false, 'ok-topic', topic);
   },
   updateProgress: async (req, res) => {

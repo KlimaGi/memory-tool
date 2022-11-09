@@ -5,7 +5,13 @@ function TodayPage() {
   const today = moment().format('YYYY-MM-DD');
   return (
     <div>
-      {today}
+      <div>
+        {today}
+      </div>
+      <div>
+        Today you don not have any topics to review
+      </div>
+
     </div>
   );
 }
