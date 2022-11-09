@@ -4,12 +4,14 @@ import React, {
 import { get, post } from '../../../../plugins/http';
 import MainContext from '../../../../context/main-context';
 import Button from '../../common-components/button';
+import ProgressBar from './progress-bar';
 import styles from './profile.module.scss';
 
 function Profile() {
   const { user, setUser } = useContext(MainContext);
   const photoRef = useRef();
   const [show, setShow] = useState(true);
+  const arr = [0, 1, 2, 3, 4];
 
   useEffect(() => {
     const userData = async () => {
@@ -40,39 +42,45 @@ function Profile() {
   const handleShow = () => setShow(!show);
 
   return (
-    <div>
-      {
-        user
-        && (
-          <div className={`d-flex fd-column ${styles.side}`}>
-            <img src={user.photo} alt="" className={styles['profile-img']} />
+    <div className={styles.main}>
 
-            <div className={styles['show-container']}>
-              <input
-                onClick={handleShow}
-                type="button"
-                className={styles['edit-btn']}
-              />
+      <section className={`d-flex fd-column ${styles.side}`}>
+        {
+          user && (<img src={user.photo} alt="" className={styles['profile-img']} />)
+        }
 
-              {!show && (
-                <>
-                  <input
-                    ref={photoRef}
-                    type="text"
-                    placeholder="add photo url"
-                    className={styles.input}
-                  />
-                  <Button
-                    type="button"
-                    func={changePhoto}
-                    text="Submit"
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        )
-      }
+        <div className={styles['show-container']}>
+          <input
+            onClick={handleShow}
+            type="button"
+            className={styles['edit-btn']}
+          />
+
+          {
+            !show && (
+              <>
+                <input
+                  ref={photoRef}
+                  type="text"
+                  placeholder="add photo url"
+                  className={styles.input}
+                />
+                <Button
+                  type="button"
+                  func={changePhoto}
+                  text="Submit"
+                />
+              </>
+            )
+          }
+        </div>
+      </section>
+
+      <section className={styles['bar-side']}>
+        {
+          arr.map((num) => <ProgressBar progress={num} quantity={36} key={num} />)
+        }
+      </section>
     </div>
   );
 }
