@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { get } from '../../../plugins/http';
 import TopicProgressCircles from '../common-components/topic-progress-circles';
 import Button from '../common-components/button';
@@ -11,6 +11,7 @@ function SingleTopicPage() {
   const [progressNum, setProgressNum] = useState(0);
   const [revisionDate, setRevisionDate] = useState('');
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const nav = useNavigate();
 
   const dateStr = (revisionDates, progressDone) => {
     const dateFormat = (arr) => {
@@ -60,6 +61,13 @@ function SingleTopicPage() {
     setShowUpdateForm(!showUpdateForm);
   };
 
+  // todo: add message to user
+  const deleteTopic = async () => {
+    const res = await get(`deleteTopic/${id}`);
+    console.log('res-delete', res);
+    nav('/dashboard/allTopics');
+  };
+
   return (
     <div>
       {
@@ -84,8 +92,8 @@ function SingleTopicPage() {
             <div className="button-container">
               <Button func={update} text="Edit" />
               {progressNum < 4 && <Button func={setNewRevisionDate} text="Revision done" />}
+              <Button func={deleteTopic} text="Delete" />
             </div>
-
           </div>
         )
       }

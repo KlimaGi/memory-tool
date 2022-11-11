@@ -113,4 +113,11 @@ module.exports = {
       topic: id, title, content,
     });
   },
+  deleteTopic: async (req, res) => {
+    const { id } = req.params;
+    await TopicSchema.findByIdAndDelete({ _id: id });
+
+    return sendRes(res, false, 'ok-deleted-topic', null);
+  },
+
 };

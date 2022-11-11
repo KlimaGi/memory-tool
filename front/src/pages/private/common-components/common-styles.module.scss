@@ -24,6 +24,15 @@
   margin-bottom: 1rem;
 }
 
+.delete-button {
+  @extend .button;
+
+  &:hover {
+    background-color: $color-red;
+    color: $color-light;
+  }
+}
+
 .toolbar-container {
   background-color: $color-light;
   display: flex;
