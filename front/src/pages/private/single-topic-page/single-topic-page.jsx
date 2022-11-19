@@ -66,8 +66,9 @@ function SingleTopicPage() {
             {
               progressNum < 4
                 ? (
-                  <span className="m-t-b">
+                  <span className="m-t-b date-text">
                     Next topic revision date:
+                    {' '}
                     {revisionDate}
                   </span>
                 )
