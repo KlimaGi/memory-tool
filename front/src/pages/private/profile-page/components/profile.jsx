@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, {
   useRef, useEffect, useContext, useState,
 } from 'react';
@@ -26,7 +27,7 @@ function Profile() {
     const progressArr = async () => {
       const secretI = localStorage.getItem('secret');
       const res = await get(`progressArr/${secretI}`);
-      console.log('res-Arr', res);
+
       if (!res.error) setArrProgress(res.data);
     };
     progressArr();
@@ -90,7 +91,7 @@ function Profile() {
             <ProgressBar
               progress={index}
               quantity={num}
-              key={num}
+              key={`${index}-${num}`}
             />
           ))
         }

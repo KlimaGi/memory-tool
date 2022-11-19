@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink as Link, useNavigate } from 'react-router-dom';
-import MainContext from '../../../context/main-context';
+// import MainContext from '../../../context/main-context';
 import Icon from './icon';
 import logoutIcon from './icons/logout.svg';
 import create from './icons/create.svg';
@@ -10,8 +10,8 @@ import today from './icons/today.svg';
 import styles from './common-styles.module.scss';
 
 function Toolbar() {
-  const { user } = useContext(MainContext);
-  console.log('user', user);
+  // const { user } = useContext(MainContext);
+  // console.log('user', user);
   const nav = useNavigate();
 
   const logout = () => {

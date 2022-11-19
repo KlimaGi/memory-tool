@@ -120,17 +120,20 @@ module.exports = {
     return sendRes(res, false, 'ok-deleted-topic', null);
   },
   progressArr: async (req, res) => {
-    const allTopicsCount = await TopicSchema.estimatedDocumentCount();
+    const { secret } = req.params;
+
+    const allTopicsCount = await TopicSchema.countDocuments({ userIdSecret: secret });
     console.log('allTopicsCount', allTopicsCount);
-    const progress0 = await TopicSchema.countDocuments({ progressDone: 0 });
-    const progress1 = await TopicSchema.countDocuments({ progressDone: 1 });
-    const progress2 = await TopicSchema.countDocuments({ progressDone: 2 });
-    const progress3 = await TopicSchema.countDocuments({ progressDone: 3 });
-    const progress4 = await TopicSchema.countDocuments({ progressDone: 4 });
+    const progress0 = await TopicSchema.countDocuments({ progressDone: 0, userIdSecret: secret });
+    const progress1 = await TopicSchema.countDocuments({ progressDone: 1, userIdSecret: secret });
+    const progress2 = await TopicSchema.countDocuments({ progressDone: 2, userIdSecret: secret });
+    const progress3 = await TopicSchema.countDocuments({ progressDone: 3, userIdSecret: secret });
+    const progress4 = await TopicSchema.countDocuments({ progressDone: 4, userIdSecret: secret });
 
     const progressNumArr = [progress0, progress1, progress2, progress3, progress4];
+    console.log('progressNumArr', progressNumArr);
 
-    const progressPercent = progressNumArr.map((num) => (num * 100) / allTopicsCount);
+    const progressPercent = progressNumArr.map((num) => Math.floor((num * 100) / allTopicsCount));
     // todo: check result with connection with router and with front
     return sendRes(res, false, 'ok-progress-arr', progressPercent);
   },
