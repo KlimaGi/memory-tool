@@ -121,7 +121,7 @@ module.exports = {
   },
   progressArr: async (req, res) => {
     const allTopicsCount = await TopicSchema.estimatedDocumentCount();
-
+    console.log('allTopicsCount', allTopicsCount);
     const progress0 = await TopicSchema.countDocuments({ progressDone: 0 });
     const progress1 = await TopicSchema.countDocuments({ progressDone: 1 });
     const progress2 = await TopicSchema.countDocuments({ progressDone: 2 });

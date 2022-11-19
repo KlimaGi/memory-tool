@@ -21,6 +21,7 @@ const {
   updateProgress,
   updateTopic,
   deleteTopic,
+  progressArr,
 } = require('../controllers/mainController');
 
 router.post('/register', emailValid, passwordValid, userValid, register);
@@ -34,5 +35,6 @@ router.get('/singleTopic/:id/:secret', secretValid, singleTopic);
 router.get('/updateProgress/:id', updateProgress);
 router.post('/updateTopic', secretValid, updateTopic);
 router.get('/deleteTopic/:id', deleteTopic);
+router.get('/progressArr/:secret', progressArr);
 
 module.exports = router;

@@ -11,16 +11,25 @@ function Profile() {
   const { user, setUser } = useContext(MainContext);
   const photoRef = useRef();
   const [show, setShow] = useState(true);
-  const arr = [9, 21, 23, 40, 10];
+  const [arrProgress, setArrProgress] = useState(null);
 
   useEffect(() => {
     const userData = async () => {
       const secretI = localStorage.getItem('secret');
       const res = await get(`userProfile/${secretI}`);
-      console.log('res-profile', res);
       if (!res.error) setUser(res.data);
     };
     userData();
+  }, []);
+
+  useEffect(() => {
+    const progressArr = async () => {
+      const secretI = localStorage.getItem('secret');
+      const res = await get(`progressArr/${secretI}`);
+      console.log('res-Arr', res);
+      if (!res.error) setArrProgress(res.data);
+    };
+    progressArr();
   }, []);
 
   const changePhoto = async () => {
@@ -35,7 +44,6 @@ function Profile() {
       userCopy.photo = res.data.photo;
       setUser(userCopy);
     }
-    console.log('res-front', res);
     setShow(!show);
   };
 
@@ -78,7 +86,13 @@ function Profile() {
 
       <section className={styles['bar-side']}>
         {
-          arr.map((num, index) => <ProgressBar progress={index} quantity={num} key={num} />)
+          arrProgress && arrProgress.map((num, index) => (
+            <ProgressBar
+              progress={index}
+              quantity={num}
+              key={num}
+            />
+          ))
         }
       </section>
     </div>
