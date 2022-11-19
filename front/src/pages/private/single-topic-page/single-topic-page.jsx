@@ -4,6 +4,7 @@ import { get } from '../../../plugins/http';
 import TopicProgressCircles from '../common-components/topic-progress-circles';
 import Button from '../common-components/button';
 import UpdateTopic from './components/update-topic';
+import { dateStr } from '../../../plugins/date-str';
 
 function SingleTopicPage() {
   const { id } = useParams();
@@ -12,19 +13,6 @@ function SingleTopicPage() {
   const [revisionDate, setRevisionDate] = useState('');
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const nav = useNavigate();
-
-  const dateStr = (revisionDates, progressDone) => {
-    const dateFormat = (arr) => {
-      const dateArr = arr;
-      if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
-      if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
-      return dateArr.slice(0, 3).join('-');
-    };
-
-    const reviewDate = revisionDates[progressDone];
-    reviewDate[1] += 1;
-    return dateFormat(reviewDate);
-  };
 
   useEffect(() => {
     const singleTopic = async () => {
@@ -61,7 +49,7 @@ function SingleTopicPage() {
     setShowUpdateForm(!showUpdateForm);
   };
 
-  // todo: add message to user
+  // todo: add message to user like alert
   const deleteTopic = async () => {
     const res = await get(`deleteTopic/${id}`);
     console.log('res-delete', res);

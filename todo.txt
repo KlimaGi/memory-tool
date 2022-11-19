@@ -35,3 +35,7 @@ https://www.youtube.com/watch?v=NU-HfZY3ATQ
 https://www.youtube.com/watch?v=ZKEqqIO7n-k
 
 // front test examples --> test ux inputs, buttons, functions
+
+
+// bugs:
+- correct progress data count
