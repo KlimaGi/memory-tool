@@ -137,4 +137,17 @@ module.exports = {
     // todo: check result with connection with router and with front
     return sendRes(res, false, 'ok-progress-arr', progressPercent);
   },
+  todayTopics: async (req, res) => {
+    const { dateArr } = req.body;
+    const { secret } = req.params;
+
+    console.log('dateArr - req.body', req.params);
+
+    const topics = await TopicSchema.find({
+      userIdSecret: secret,
+      progress: [0][3] === dateArr,
+    });
+    console.log('topics-today', topics);
+    return sendRes(res, false, 'ok-today-topic', dateArr);
+  },
 };

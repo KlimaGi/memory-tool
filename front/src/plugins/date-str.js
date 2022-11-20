@@ -8,7 +8,7 @@ const dateStr = (revisionDates, progressDone) => {
   };
 
   const reviewDate = revisionDates[progressDone];
-  reviewDate[1] += 1;
+  reviewDate[1] = Number(reviewDate[1]) + 1;
   return dateFormat(reviewDate);
 };
 
