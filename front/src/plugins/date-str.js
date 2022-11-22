@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-const dateStr = (revisionDates, progressDone) => {
+const dateStr = (progressDate) => {
   const dateFormat = (arr) => {
     const dateArr = arr;
     if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
@@ -7,7 +7,7 @@ const dateStr = (revisionDates, progressDone) => {
     return dateArr.slice(0, 3).join('-');
   };
 
-  const reviewDate = revisionDates[progressDone];
+  const reviewDate = progressDate;
   reviewDate[1] = Number(reviewDate[1]) + 1;
   return dateFormat(reviewDate);
 };

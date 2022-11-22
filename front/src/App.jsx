@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useState } from 'react';
-import './styles/index.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
 import MainContext from './context/main-context';
+import { get } from './plugins/http';
+import './styles/index.scss';
 
 import PublicPage from './pages/public-page';
 
@@ -27,6 +30,16 @@ function App() {
     user,
     setUser,
   };
+
+  useEffect(() => {
+    const allTopics = async () => {
+      const secret = localStorage.getItem('secret');
+      const res = await get(`allTopics/${secret}`);
+      if (!res.error) setTopics(res.data);
+      if (res.error) console.log('there is no topics');
+    };
+    allTopics();
+  }, []);
 
   return (
     <div>

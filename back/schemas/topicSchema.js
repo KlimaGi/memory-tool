@@ -27,6 +27,10 @@ const topicSchema = new Schema({
     type: Number,
     required: true,
   },
+  progressDate: {
+    type: [Number],
+    required: true,
+  },
 });
 
 const exportUser = mongoose.model('memoTopics', topicSchema);

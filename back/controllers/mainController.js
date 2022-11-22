@@ -67,7 +67,12 @@ module.exports = {
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
       progressDone: -1,
+      progressDate: progress1,
     };
+    const progressDate = topicData.progress[topicData.progressDone + 1];
+    topicData.progressDate = progressDate.slice(0, 3);
+
+    console.log('progressDate', topicData.progressDate);
 
     const newTopic = new TopicSchema(topicData);
     await newTopic.save();
@@ -95,7 +100,16 @@ module.exports = {
     );
 
     await topicData.save();
-    return sendRes(res, false, 'ok-all-posts', { progressNum: topicData.progressDone });
+    console.log('topicData', topicData);
+
+    const updateTopicDate = await TopicSchema.findOneAndUpdate(
+      { _id: id },
+      { $set: { progressDate: topicData.progress[topicData.progressDone] } },
+      { new: true },
+    );
+    console.log('updateTopicDate', updateTopicDate);
+
+    return sendRes(res, false, 'ok-all-posts', { updateTopicDate });
   },
   updateTopic: async (req, res) => {
     const {
