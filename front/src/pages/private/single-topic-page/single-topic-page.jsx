@@ -5,7 +5,6 @@ import { get } from '../../../plugins/http';
 import TopicProgressCircles from '../common-components/topic-progress-circles';
 import Button from '../common-components/button';
 import UpdateTopic from './components/update-topic';
-import { dateStr } from '../../../plugins/date-str';
 
 function SingleTopicPage() {
   const { id } = useParams();
@@ -14,8 +13,6 @@ function SingleTopicPage() {
   const oneTopic = topics.find((topic) => topic._id === id);
 
   const [topic, setTopic] = useState(null);
-  const date = dateStr(oneTopic.progressDate);
-  const [progressDate, setProgressDate] = useState(date);
 
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
@@ -38,7 +35,6 @@ function SingleTopicPage() {
       console.log('res-update revision', res);
 
       setTopic(res.data.updateTopicDate);
-      setProgressDate(dateStr(topic.progressDate));
     }
     if (res.error) console.log('update revision date fail, try again');
   };
@@ -67,7 +63,9 @@ function SingleTopicPage() {
                   <span className="m-t-b date-text">
                     Next topic revision date:
                     {' '}
-                    {progressDate}
+                    {topic
+                      ? topic.progressDate
+                      : oneTopic.progressDate}
                   </span>
                 )
                 : <span className="m-t-b">Topic revision done</span>

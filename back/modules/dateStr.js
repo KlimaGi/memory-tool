@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-const dateStr = (progressDate) => {
+module.exports = (progressDate) => {
   const dateFormat = (arr) => {
     const dateArr = arr;
     if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
@@ -11,5 +10,3 @@ const dateStr = (progressDate) => {
   reviewDate[1] = Number(reviewDate[1]) + 1;
   return dateFormat(reviewDate);
 };
-
-export { dateStr };

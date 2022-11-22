@@ -5,6 +5,7 @@ const moment = require('moment');
 const UserSchema = require('../schemas/userSchema');
 const TopicSchema = require('../schemas/topicSchema');
 const sendRes = require('../modules/universalRes');
+const dateStr = require('../modules/dateStr');
 
 module.exports = {
 
@@ -67,10 +68,10 @@ module.exports = {
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
       progressDone: -1,
-      progressDate: progress1,
+      progressDate: dateStr(progress1),
     };
     const progressDate = topicData.progress[topicData.progressDone + 1];
-    topicData.progressDate = progressDate.slice(0, 3);
+    topicData.progressDate = dateStr(progressDate);
 
     console.log('progressDate', topicData.progressDate);
 
@@ -102,9 +103,13 @@ module.exports = {
     await topicData.save();
     console.log('topicData', topicData);
 
+    const date = topicData.progress[topicData.progressDone];
+    const dateToStr = dateStr(date);
+    console.log('dateToStr', dateToStr);
+
     const updateTopicDate = await TopicSchema.findOneAndUpdate(
       { _id: id },
-      { $set: { progressDate: topicData.progress[topicData.progressDone] } },
+      { $set: { progressDate: dateToStr } },
       { new: true },
     );
     console.log('updateTopicDate', updateTopicDate);

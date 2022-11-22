@@ -28,7 +28,7 @@ const topicSchema = new Schema({
     required: true,
   },
   progressDate: {
-    type: [Number],
+    type: String,
     required: true,
   },
 });
