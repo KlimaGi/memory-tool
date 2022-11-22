@@ -1,23 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { post } from '../../plugins/http';
+import { get } from '../../plugins/http';
+import SingleTopic from './all-topics-page/components/single-topic';
 
 function TodayPage() {
   const today = moment().format('YYYY-MM-DD');
-  const date = moment().format('YYYY-MM-DD').split('-').map((x) => Number(x));
-  console.log('date', date);
-  // const [topics, setTopics] = useState(null);
-
-  const topicDate = {
-    dateArr: date,
-  };
+  const [topics, setTopics] = useState(null);
 
   useEffect(() => {
     const todayTopics = async () => {
       const secret = localStorage.getItem('secret');
-      const res = await post(`todayTopics/${secret}`, topicDate);
+      const res = await get(`todayTopics/${secret}/${today}`);
       console.log('res-today', res);
-      // if (!res.error) setTopics(res.data);
+      if (!res.error) setTopics(res.data);
     };
     todayTopics();
   }, []);
@@ -27,15 +22,16 @@ function TodayPage() {
       <div>
         {today}
       </div>
+      {!topics
+        && (
+          <div>
+            Today you do not have any topics to review
+          </div>
+        )}
       <div>
-        Today you don not have any topics to review
+        {topics
+          && topics.map((topic) => <SingleTopic topic={topic} key={topic._id} />)}
       </div>
-      {
-        //   <div>
-        //   {topics
-        //     && topics[0].title}
-        // </div>
-      }
 
     </div>
   );

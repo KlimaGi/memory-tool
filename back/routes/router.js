@@ -37,6 +37,6 @@ router.get('/updateProgress/:id', updateProgress);
 router.post('/updateTopic', secretValid, updateTopic);
 router.get('/deleteTopic/:id', deleteTopic);
 router.get('/progressArr/:secret', progressArr);
-router.post('/todayTopics/:secret', todayTopics);
+router.get('/todayTopics/:secret/:today', todayTopics);
 
 module.exports = router;

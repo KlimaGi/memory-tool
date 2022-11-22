@@ -5,7 +5,7 @@ const moment = require('moment');
 const UserSchema = require('../schemas/userSchema');
 const TopicSchema = require('../schemas/topicSchema');
 const sendRes = require('../modules/universalRes');
-const dateStr = require('../modules/dateStr');
+const { dateStr, dateStrAddOne } = require('../modules/dateStr');
 
 module.exports = {
 
@@ -68,7 +68,7 @@ module.exports = {
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
       progressDone: -1,
-      progressDate: dateStr(progress1),
+      progressDate: dateStrAddOne(progress1),
     };
     const progressDate = topicData.progress[topicData.progressDone + 1];
     topicData.progressDate = dateStr(progressDate);
@@ -101,10 +101,9 @@ module.exports = {
     );
 
     await topicData.save();
-    console.log('topicData', topicData);
 
     const date = topicData.progress[topicData.progressDone];
-    const dateToStr = dateStr(date);
+    const dateToStr = dateStrAddOne(date);
     console.log('dateToStr', dateToStr);
 
     const updateTopicDate = await TopicSchema.findOneAndUpdate(
@@ -112,7 +111,6 @@ module.exports = {
       { $set: { progressDate: dateToStr } },
       { new: true },
     );
-    console.log('updateTopicDate', updateTopicDate);
 
     return sendRes(res, false, 'ok-all-posts', { updateTopicDate });
   },
@@ -157,16 +155,13 @@ module.exports = {
     return sendRes(res, false, 'ok-progress-arr', progressPercent);
   },
   todayTopics: async (req, res) => {
-    const { dateArr } = req.body;
-    const { secret } = req.params;
-
-    console.log('dateArr - req.body', req.params);
+    const { secret, today } = req.params;
 
     const topics = await TopicSchema.find({
       userIdSecret: secret,
-      progress: [0][3] === dateArr,
+      progressDate: today,
     });
-    console.log('topics-today', topics);
-    return sendRes(res, false, 'ok-today-topic', dateArr);
+
+    return sendRes(res, false, 'ok-today-topic', topics);
   },
 };
