@@ -24,7 +24,7 @@
         *- eslint back
         *- eslint front
 - add tests to node/back modules and middlewares (2022-10-28 lesson)
-
+ 
 
 -https://www.youtube.com/watch?v=pf6Zhm-PDfQ&ab_channel=TECHIN5MINUTES
 https://www.youtube.com/watch?v=7r4xVDI2vho&ab_channel=TraversyMedia
