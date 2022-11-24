@@ -19,6 +19,7 @@ import CreateTopicPage from './pages/private/create-topic-page';
 import AllTopicsPage from './pages/private/all-topics-page/all-topics-page';
 import TodayPage from './pages/private/today-page';
 import SingleTopicPage from './pages/private/single-topic-page/single-topic-page';
+import GamesPage from './pages/private/games-page/games-page';
 
 function App() {
   const [topics, setTopics] = useState([]);
@@ -60,6 +61,7 @@ function App() {
               <Route path="profile" element={<ProfilePage />} />
               <Route path="create" element={<CreateTopicPage />} />
               <Route path="singleTopic/:id" element={<SingleTopicPage />} />
+              <Route path="games" element={<GamesPage />} />
             </Route>
 
           </Routes>

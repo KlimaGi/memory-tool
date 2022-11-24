@@ -11,17 +11,15 @@ function TodayPage() {
     const todayTopics = async () => {
       const secret = localStorage.getItem('secret');
       const res = await get(`todayTopics/${secret}/${today}`);
-      console.log('res-today', res);
       if (!res.error) setTopics(res.data);
     };
     todayTopics();
   }, []);
 
   return (
-    <div>
-      <div>
-        {today}
-      </div>
+    <>
+      {today}
+
       {!topics
         && (
           <div>
@@ -33,7 +31,7 @@ function TodayPage() {
           && topics.map((topic) => <SingleTopic topic={topic} key={topic._id} />)}
       </div>
 
-    </div>
+    </>
   );
 }
 
