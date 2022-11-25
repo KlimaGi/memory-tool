@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { randomTime, whatIsTheTime } from './clock-functions';
 
 import ClockCircleCounts from './clock-circle-counts';
+import styles from './clock.module.scss';
 
 function MirrorClock() {
   const [time, setTime] = useState('06:00');
@@ -21,19 +22,47 @@ function MirrorClock() {
   };
 
   return (
-    <div>
+    <div className="d-flex">
 
       <ClockCircleCounts time={time} />
-      <button type="button" onClick={generateTime}>start</button>
-      <div>{time}</div>
-      <div>input write</div>
-      <button type="button" onClick={mirrorTimeIs}>submit</button>
       <div>
-        result:
-        {' '}
-        {answer}
-        {' '}
+        <button type="button" onClick={generateTime}>start</button>
+        <span>{time}</span>
+
+        <div>
+
+          <label htmlFor="hours">
+            <input
+              type="text"
+              id="hours"
+              placeholder="hh"
+              className={styles['input-label']}
+            />
+          </label>
+          :
+          <label htmlFor="minutes">
+            <input
+              type="text"
+              id="minutes"
+              placeholder="mm"
+              className={styles['input-label']}
+            />
+          </label>
+        </div>
+
+        <button type="button" onClick={mirrorTimeIs}>submit</button>
+        {
+          showClock2 && (
+            <div>
+              result:
+              {' '}
+              {answer}
+              {' '}
+            </div>
+          )
+        }
       </div>
+
       {
         showClock2 && <ClockCircleCounts time={answer} />
       }

@@ -7,6 +7,7 @@ import create from './icons/create.svg';
 import all from './icons/all.svg';
 import profile from './icons/profile.svg';
 import today from './icons/today.svg';
+import brain from './icons/brain.svg';
 import styles from './common-styles.module.scss';
 
 function Toolbar() {
@@ -26,6 +27,9 @@ function Toolbar() {
       </div>
 
       <div className={styles.toolbar}>
+        <Link to="/dashboard/games">
+          <Icon icon={brain} text="brain games" />
+        </Link>
         <Link to="/dashboard/today">
           <Icon icon={today} text="today" />
         </Link>
