@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useRef, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ function Login() {
 
   return (
     <div className={styles.form}>
-      <input ref={emailRef} type="text" placeholder="email" />
+      <input ref={emailRef} type="text" placeholder="email" autoFocus />
       <input ref={passwordRef} type="text" placeholder="password" />
 
       <Button func={login} text="login" />

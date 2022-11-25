@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState } from 'react';
 import { randomTime, whatIsTheTime } from './clock-functions';
 
@@ -20,6 +21,8 @@ function MirrorClock() {
     setAnswer(result);
     setShowClock2(!showClock2);
   };
+  // todo: auto focus, submited result on clock,
+  // todo:  success alert or add right answear in opacity red background
 
   return (
     <div className="d-flex">
@@ -37,6 +40,7 @@ function MirrorClock() {
               id="hours"
               placeholder="hh"
               className={styles['input-label']}
+              autoFocus
             />
           </label>
           :
