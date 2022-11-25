@@ -5,35 +5,41 @@ import { randomTime, whatIsTheTime } from './clock-functions';
 import ClockCircleCounts from './clock-circle-counts';
 import styles from './clock.module.scss';
 
-function MirrorClock() {
-  const [time, setTime] = useState('06:00');
-  const [answer, setAnswer] = useState('06:00');
-  const [showClock2, setShowClock2] = useState(false);
+function MirrorClockGame() {
+  const [time, setTime] = useState('00:00');
+  const [answer, setAnswer] = useState('00:00');
+  const [show, setShow] = useState(false);
+  const showAnswerStyle = show ? styles['answer-show'] : styles['answer-hide'];
 
   const generateTime = () => {
     const newTime = randomTime();
     setTime(newTime);
-    if (showClock2 === true) setShowClock2(false);
+    if (show === true) setShow(false);
   };
 
   const mirrorTimeIs = () => {
     const result = whatIsTheTime(time);
     setAnswer(result);
-    setShowClock2(!showClock2);
+    setShow(!show);
   };
   // todo: auto focus, submited result on clock,
-  // todo:  success alert or add right answear in opacity red background
+  // todo:  success alert or add right answer in opacity red background
 
   return (
     <div className="d-flex">
 
       <ClockCircleCounts time={time} />
-      <div>
-        <button type="button" onClick={generateTime}>start</button>
-        <span>{time}</span>
+      <div className={styles.container}>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={generateTime}
+        >
+          start
+        </button>
+        <b>{time}</b>
 
-        <div>
-
+        <div className={styles['input-container']}>
           <label htmlFor="hours">
             <input
               type="text"
@@ -43,7 +49,8 @@ function MirrorClock() {
               autoFocus
             />
           </label>
-          :
+          <b>:</b>
+
           <label htmlFor="minutes">
             <input
               type="text"
@@ -54,25 +61,29 @@ function MirrorClock() {
           </label>
         </div>
 
-        <button type="button" onClick={mirrorTimeIs}>submit</button>
-        {
-          showClock2 && (
-            <div>
-              result:
-              {' '}
-              {answer}
-              {' '}
-            </div>
-          )
-        }
+        <button
+          className={styles.button}
+          type="button"
+          onClick={mirrorTimeIs}
+        >
+          submit
+        </button>
+
+        <div className={showAnswerStyle}>
+          result:
+          {' '}
+          {answer}
+          {' '}
+        </div>
+
       </div>
 
       {
-        showClock2 && <ClockCircleCounts time={answer} />
+        show && <ClockCircleCounts time={answer} />
       }
 
     </div>
   );
 }
 
-export default MirrorClock;
+export default MirrorClockGame;

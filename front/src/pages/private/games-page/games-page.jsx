@@ -1,11 +1,10 @@
 import React from 'react';
-import MirrorClock from './components/mirror-clock';
+import MirrorClockGame from './components/mirror-clock-game';
 
 function GamesPage() {
   return (
     <div>
-      games
-      <MirrorClock />
+      <MirrorClockGame />
     </div>
   );
 }
