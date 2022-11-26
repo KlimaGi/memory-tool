@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { randomTime, whatIsTheTime } from './clock-functions';
 
 import ClockCircleCounts from './clock-circle-counts';
@@ -10,17 +10,34 @@ function MirrorClockGame() {
   const [answer, setAnswer] = useState('00:00');
   const [show, setShow] = useState(false);
   const showAnswerStyle = show ? styles['answer-show'] : styles['answer-hide'];
+  const hourRef = useRef();
+  const minutesRef = useRef();
 
   const generateTime = () => {
     const newTime = randomTime();
     setTime(newTime);
     if (show === true) setShow(false);
+    hourRef.current.value = '';
+    minutesRef.current.value = '';
   };
 
   const mirrorTimeIs = () => {
-    const result = whatIsTheTime(time);
-    setAnswer(result);
+    const rightResult = whatIsTheTime(time);
+    setAnswer(rightResult);
     setShow(!show);
+    const hours = hourRef.current.value;
+    const minutes = minutesRef.current.value;
+
+    const addZero = (num) => ((num.length < 2) ? `0${num}` : num);
+
+    const userAnswer = [addZero(hours), addZero(minutes)].join(':');
+    console.log('userAnswer', userAnswer);
+    if (userAnswer === rightResult) console.log('correct');
+    else console.log('right answear is ', rightResult);
+  };
+
+  const flowWrite = () => {
+    if (hourRef.current.value.length === 2) minutesRef.current.focus();
   };
   // todo: auto focus, submited result on clock,
   // todo:  success alert or add right answer in opacity red background
@@ -46,7 +63,9 @@ function MirrorClockGame() {
               id="hours"
               placeholder="hh"
               className={styles['input-label']}
-              autoFocus
+              maxLength="2"
+              ref={hourRef}
+              onChange={flowWrite}
             />
           </label>
           <b>:</b>
@@ -57,6 +76,8 @@ function MirrorClockGame() {
               id="minutes"
               placeholder="mm"
               className={styles['input-label']}
+              maxLength="2"
+              ref={minutesRef}
             />
           </label>
         </div>
