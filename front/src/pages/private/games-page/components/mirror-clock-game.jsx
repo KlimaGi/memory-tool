@@ -8,8 +8,10 @@ import styles from './clock.module.scss';
 function MirrorClockGame() {
   const [time, setTime] = useState('00:00');
   const [answer, setAnswer] = useState('00:00');
+  const [wrongAnswer, setWrongAnswer] = useState('00:00');
   const [show, setShow] = useState(false);
   const showAnswerStyle = show ? styles['answer-show'] : styles['answer-hide'];
+  const [answerStyle, setAnswerStyle] = useState(null);
   const hourRef = useRef();
   const minutesRef = useRef();
 
@@ -19,6 +21,7 @@ function MirrorClockGame() {
     if (show === true) setShow(false);
     hourRef.current.value = '';
     minutesRef.current.value = '';
+    setWrongAnswer('00:00');
   };
 
   const mirrorTimeIs = () => {
@@ -32,8 +35,13 @@ function MirrorClockGame() {
 
     const userAnswer = [addZero(hours), addZero(minutes)].join(':');
     console.log('userAnswer', userAnswer);
-    if (userAnswer === rightResult) console.log('correct');
-    else console.log('right answear is ', rightResult);
+    if (userAnswer === rightResult) {
+      setWrongAnswer('00:00');
+      setAnswerStyle(styles.correct);
+    } else {
+      setWrongAnswer(userAnswer);
+      setAnswerStyle(styles.wrong);
+    }
   };
 
   const flowWrite = () => {
@@ -91,14 +99,19 @@ function MirrorClockGame() {
         </button>
 
         <div className={showAnswerStyle}>
-          result:
-          {' '}
-          {answer}
-          {' '}
+          <div className={answerStyle}>
+            result:
+            {' '}
+            {answer}
+          </div>
+
         </div>
 
       </div>
 
+      {
+        wrongAnswer !== '00:00' && <div className={answerStyle}><ClockCircleCounts time={wrongAnswer} /></div>
+      }
       {
         show && <ClockCircleCounts time={answer} />
       }
