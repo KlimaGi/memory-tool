@@ -48,7 +48,7 @@ function MirrorClockGame() {
     if (hourRef.current.value.length === 2) minutesRef.current.focus();
   };
   // todo: auto focus, submited result on clock,
-  // todo:  success alert or add right answer in opacity red background
+  // todo: correct answers styles
 
   return (
     <div className="d-flex">

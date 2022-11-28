@@ -39,3 +39,18 @@ https://www.youtube.com/watch?v=ZKEqqIO7n-k
  
 // bugs: 
 - correct progress data count in front
+
+*- add games page
+ *- auto focus, 
+ *- submitted result show on clock,
+ *- add user answer styles (wrong & success)
+ - make corrections on user answers styles
+
+
+- add game roles text
+- add rule as module with button onClick
+
+- add readme text, with about text content
+- add description in git 
+
+- add cookie instead local storage
