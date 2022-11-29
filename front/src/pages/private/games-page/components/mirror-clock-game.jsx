@@ -51,69 +51,85 @@ function MirrorClockGame() {
   // todo: correct answers styles
 
   return (
-    <div className="d-flex">
+    <div className={styles['game-container']}>
+      <div className={styles['game-item']}>
+        <ClockCircleCounts time={time} />
+      </div>
+      <div className={styles['game-item']}>
+        <div className={styles.container}>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={generateTime}
+          >
+            start
+          </button>
+          <b>{time}</b>
 
-      <ClockCircleCounts time={time} />
-      <div className={styles.container}>
-        <button
-          className={styles.button}
-          type="button"
-          onClick={generateTime}
-        >
-          start
-        </button>
-        <b>{time}</b>
+          <div className={styles['input-container']}>
+            <label htmlFor="hours">
+              <input
+                type="number"
+                min="00"
+                max="12"
+                id="hours"
+                placeholder="hh"
+                className={styles['input-label']}
+                maxLength="2"
+                ref={hourRef}
+                onChange={flowWrite}
+              />
+            </label>
+            <b>:</b>
 
-        <div className={styles['input-container']}>
-          <label htmlFor="hours">
-            <input
-              type="text"
-              id="hours"
-              placeholder="hh"
-              className={styles['input-label']}
-              maxLength="2"
-              ref={hourRef}
-              onChange={flowWrite}
-            />
-          </label>
-          <b>:</b>
+            <label htmlFor="minutes">
+              <input
+                type="number"
+                min="00"
+                max="59"
+                id="minutes"
+                placeholder="mm"
+                className={styles['input-label']}
+                maxLength="2"
+                ref={minutesRef}
+              />
+            </label>
+          </div>
 
-          <label htmlFor="minutes">
-            <input
-              type="text"
-              id="minutes"
-              placeholder="mm"
-              className={styles['input-label']}
-              maxLength="2"
-              ref={minutesRef}
-            />
-          </label>
-        </div>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={mirrorTimeIs}
+          >
+            submit
+          </button>
 
-        <button
-          className={styles.button}
-          type="button"
-          onClick={mirrorTimeIs}
-        >
-          submit
-        </button>
+          <div className={showAnswerStyle}>
+            <div className={answerStyle}>
+              correct answer:
+              {' '}
+              {answer}
+            </div>
 
-        <div className={showAnswerStyle}>
-          <div className={answerStyle}>
-            result:
-            {' '}
-            {answer}
           </div>
 
         </div>
-
       </div>
 
       {
-        wrongAnswer !== '00:00' && <div className={answerStyle}><ClockCircleCounts time={wrongAnswer} /></div>
+        show && (
+          <div className={styles['game-item']}>
+            <ClockCircleCounts time={answer} />
+          </div>
+        )
       }
+
       {
-        show && <ClockCircleCounts time={answer} />
+        wrongAnswer !== '00:00' && (
+          <div className={styles['game-item']}>
+            <div className={styles['wrong-clock']}><ClockCircleCounts time={wrongAnswer} /></div>
+          </div>
+        )
       }
 
     </div>
