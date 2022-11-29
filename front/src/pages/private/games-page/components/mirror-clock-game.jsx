@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { randomTime, whatIsTheTime } from './clock-functions';
 
 import ClockCircleCounts from './clock-circle-counts';
+import AnimatedToggleContent from './animated-toggle-content';
 import styles from './clock.module.scss';
 
 function MirrorClockGame() {
@@ -123,6 +124,8 @@ function MirrorClockGame() {
           </div>
         )
       }
+
+      <AnimatedToggleContent />
 
       {
         wrongAnswer !== '00:00' && (
