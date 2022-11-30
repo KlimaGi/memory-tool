@@ -1,6 +1,9 @@
 @import '../../../styles/variables';
 
 .logo {
+  display: flex;
+  align-items: center;
+
   @media only screen and (max-width: 600px) {
     display: none;
   }
@@ -48,7 +51,7 @@
   align-items: center;
 
   a {
-    margin: 1rem;
+    margin: 0 1rem;
     padding: 1rem;
     text-decoration: none;
 
