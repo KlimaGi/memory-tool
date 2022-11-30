@@ -30,7 +30,7 @@
   }
 
   &.active::before {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
 
 }
@@ -52,7 +52,7 @@
     height: 13rem;
     border-radius: 20px;
     z-index: 5;
-    transform: translateX(13rem);
+    transform: translate(9rem, 9rem);
     transition-delay: 0s, 0.5s, 0.5s;
     background-color: $color-light;
 

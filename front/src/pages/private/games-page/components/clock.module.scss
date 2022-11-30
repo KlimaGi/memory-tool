@@ -4,28 +4,36 @@
   margin: 1rem auto;
   display: flex;
   flex-wrap: wrap;
-  //justify-content: space-around;
+  justify-content: center;
   align-items: center;
   max-width: 52rem;
-  border: 1px solid #a21381;
+  // border: 1px solid #a21381;
   gap: 1rem;
-  // margin-top: 2rem;
+  position: relative;
+}
+
+.rule-block {
+  // width: 60%;
+  display: flex;
+  align-items: center;
+  // border: 1px solid #a21381;
+  position: absolute;
+  left: -10px;
+  top: 14.5rem;
 }
 
 .game-item {
-  width: 16.5rem;
-  border: 1px solid #a21381;
+  // border: 1px solid #a21381;
   display: flex;
-  align-items: baseline;
-  justify-content: baseline;
+  flex-direction: column;
 }
 
 .clock {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  border: 5px solid #868bb1;
-  background-color: #868BB1;
+  border: 5px solid $color-semi-dark;
+  background-color: $color-semi-dark;
   border-radius: 50%;
   width: 14.5rem;
   margin: 1rem;
@@ -79,21 +87,21 @@
 }
 
 .correct {
-  background-color: #6bcd6b70;
-  border-top: 3px solid #92a392;
+  background-color: $color-light-green;
+  border-top: 3px solid $color-green;
   padding: 1rem;
   margin-top: -1rem;
 
 }
 
 .wrong {
-  background-color: #cd5c5c42;
-  border-top: 3px solid #c08484;
+  background-color: $color-light-red;
+  border-top: 3px solid $color-semi-red;
   padding: 1rem;
   margin-top: -1rem;
 }
 
 .wrong-clock {
-  background-color: #cd5c5c42;
+  background-color: $color-light-red;
   padding: 0.1rem 0;
 }

@@ -53,6 +53,10 @@ function MirrorClockGame() {
 
   return (
     <div className={styles['game-container']}>
+      <div className={styles['rule-block']}>
+        <AnimatedToggleContent />
+      </div>
+
       <div className={styles['game-item']}>
         <ClockCircleCounts time={time} />
       </div>
@@ -124,9 +128,7 @@ function MirrorClockGame() {
           </div>
         )
       }
-      <div className={styles['game-item']}>
-        <AnimatedToggleContent />
-      </div>
+
       {
         wrongAnswer !== '00:00' && (
           <div className={styles['game-item']}>
