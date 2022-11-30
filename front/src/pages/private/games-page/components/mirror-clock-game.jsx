@@ -124,9 +124,9 @@ function MirrorClockGame() {
           </div>
         )
       }
-
-      <AnimatedToggleContent />
-
+      <div className={styles['game-item']}>
+        <AnimatedToggleContent />
+      </div>
       {
         wrongAnswer !== '00:00' && (
           <div className={styles['game-item']}>

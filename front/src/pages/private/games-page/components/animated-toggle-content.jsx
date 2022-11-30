@@ -17,7 +17,11 @@ function AnimatedToggleContent() {
         role="button"
         tabIndex="0"
       />
-      <div className={`${styles.menu} ${classBox}`} />
+      <div className={`${styles.menu} ${classBox}`}>
+        <p>Hours are between 1 and 13.</p>
+        <p>There is no 00:20, instead it is 12:20.</p>
+        <p>There is no 13:20, instead it is 01:20.</p>
+      </div>
     </div>
   );
 }
