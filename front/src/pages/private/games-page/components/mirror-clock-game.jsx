@@ -35,7 +35,6 @@ function MirrorClockGame() {
     const addZero = (num) => ((num.length < 2) ? `0${num}` : num);
 
     const userAnswer = [addZero(hours), addZero(minutes)].join(':');
-    console.log('userAnswer', userAnswer);
     if (userAnswer === rightResult) {
       setWrongAnswer('00:00');
       setAnswerStyle(styles.correct);
@@ -48,8 +47,6 @@ function MirrorClockGame() {
   const flowWrite = () => {
     if (hourRef.current.value.length === 2) minutesRef.current.focus();
   };
-  // todo: auto focus, submited result on clock,
-  // todo: correct answers styles
 
   return (
     <div className={styles['game-container']}>

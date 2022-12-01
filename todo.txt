@@ -12,8 +12,8 @@
       *- update topic
       *- profile data with progress bar 
          - separate profile section & progress-bar section
-         - add filtered data % result to progress-bar
-      - today page with filtered data
+         *- add filtered data % result to progress-bar
+      *- today page with filtered data
        
        *// todo: istaisyti besidubliuojancia info (topicSchema) progressDone - progressStep
 - add cookies
@@ -44,13 +44,26 @@ https://www.youtube.com/watch?v=ZKEqqIO7n-k
  *- auto focus, 
  *- submitted result show on clock,
  *- add user answer styles (wrong & success)
- - make corrections on user answers styles
+ *- make corrections on user answers styles
 
 
-- add game roles text
-- add rule as module with button onClick
+*- add game roles text
+*- add rule as module with button onClick
 
 - add readme text, with about text content
 - add description in git 
 
 - add cookie instead local storage
+
+- add footer 
+
+all games: 
+-* 1 clock mirror
+- 2 game - time difference count
+- 3 add count memorize
+
+- add repetition cards 
+   -cards fill action 
+   -cards spin with button click 
+   -cards goes by them line 
+   -cards line reshuffle
