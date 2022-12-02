@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState, useRef } from 'react';
-import { randomTime, whatIsTheTime } from '../common-components/clock-functions';
+import { randomTime, whatIsTheTime } from '../functions/clock-functions';
 
 import ClockCircleCounts from '../common-components/clock-circle-counts';
 import AnimatedToggleContent from '../common-components/animated-toggle-content';
