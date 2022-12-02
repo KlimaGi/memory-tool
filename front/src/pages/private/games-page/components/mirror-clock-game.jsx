@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState, useRef } from 'react';
-import { randomTime, whatIsTheTime } from './common-components/clock-functions';
+import { randomTime, whatIsTheTime } from '../common-components/clock-functions';
 
-import ClockCircleCounts from './common-components/clock-circle-counts';
-import AnimatedToggleContent from './common-components/animated-toggle-content';
-import styles from './common-components/clock.module.scss';
+import ClockCircleCounts from '../common-components/clock-circle-counts';
+import AnimatedToggleContent from '../common-components/animated-toggle-content';
+import styles from '../common-components/clock.module.scss';
 
 function MirrorClockGame() {
   const [time, setTime] = useState('00:00');
@@ -57,6 +57,7 @@ function MirrorClockGame() {
       <div className={styles['game-item']}>
         <ClockCircleCounts time={time} />
       </div>
+
       <div className={styles['game-item']}>
         <div className={styles.container}>
           <button
