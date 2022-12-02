@@ -117,22 +117,28 @@ function MirrorClockGame() {
 
         </div>
       </div>
+      <div className={styles['clock-block']}>
+        {
+          show && (
+            <div className={styles['game-item']}>
+              <ClockCircleCounts time={answer} />
+            </div>
+          )
+        }
+      </div>
 
-      {
-        show && (
-          <div className={styles['game-item']}>
-            <ClockCircleCounts time={answer} />
-          </div>
-        )
-      }
+      <div className={styles['clock-block']}>
+        {
+          wrongAnswer !== '00:00' && (
+            <div className={`${styles['game-item']} ${styles['wrong-clock']}`}>
 
-      {
-        wrongAnswer !== '00:00' && (
-          <div className={styles['game-item']}>
-            <div className={styles['wrong-clock']}><ClockCircleCounts time={wrongAnswer} /></div>
-          </div>
-        )
-      }
+              <ClockCircleCounts time={wrongAnswer} />
+
+            </div>
+          )
+        }
+
+      </div>
 
     </div>
   );
