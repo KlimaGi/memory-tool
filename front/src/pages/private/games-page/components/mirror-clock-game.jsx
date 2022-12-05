@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { randomTime, whatIsTheTime } from '../functions/clock-functions';
 
 import ClockCircleCounts from '../common-components/clock-circle-counts';
 import AnimatedToggleContent from '../common-components/animated-toggle-content';
+import UserInputAction from '../common-components/user-input-action';
 import styles from '../common-components/clock.module.scss';
 
 function MirrorClockGame() {
@@ -13,28 +14,21 @@ function MirrorClockGame() {
   const [show, setShow] = useState(false);
   const showAnswerStyle = show ? styles['answer-show'] : styles['answer-hide'];
   const [answerStyle, setAnswerStyle] = useState(null);
-  const hourRef = useRef();
-  const minutesRef = useRef();
 
   const generateTime = () => {
     const newTime = randomTime();
     setTime(newTime);
     if (show === true) setShow(false);
-    hourRef.current.value = '';
-    minutesRef.current.value = '';
+    // hourRef.current.value = '';
+    // minutesRef.current.value = '';
     setWrongAnswer('00:00');
   };
 
-  const mirrorTimeIs = () => {
+  const mirrorTimeIs = (userAnswer) => {
     const rightResult = whatIsTheTime(time);
     setAnswer(rightResult);
     setShow(!show);
-    const hours = hourRef.current.value;
-    const minutes = minutesRef.current.value;
 
-    const addZero = (num) => ((num.length < 2) ? `0${num}` : num);
-
-    const userAnswer = [addZero(hours), addZero(minutes)].join(':');
     if (userAnswer === rightResult) {
       setWrongAnswer('00:00');
       setAnswerStyle(styles.correct);
@@ -42,10 +36,6 @@ function MirrorClockGame() {
       setWrongAnswer(userAnswer);
       setAnswerStyle(styles.wrong);
     }
-  };
-
-  const flowWrite = () => {
-    if (hourRef.current.value.length === 2) minutesRef.current.focus();
   };
 
   return (
@@ -69,43 +59,7 @@ function MirrorClockGame() {
           </button>
           <b>{time}</b>
 
-          <div className={styles['input-container']}>
-            <label htmlFor="hours">
-              <input
-                type="number"
-                min="00"
-                max="12"
-                id="hours"
-                placeholder="hh"
-                className={styles['input-label']}
-                maxLength="2"
-                ref={hourRef}
-                onChange={flowWrite}
-              />
-            </label>
-            <b>:</b>
-
-            <label htmlFor="minutes">
-              <input
-                type="number"
-                min="00"
-                max="59"
-                id="minutes"
-                placeholder="mm"
-                className={styles['input-label']}
-                maxLength="2"
-                ref={minutesRef}
-              />
-            </label>
-          </div>
-
-          <button
-            className={styles.button}
-            type="button"
-            onClick={mirrorTimeIs}
-          >
-            submit
-          </button>
+          <UserInputAction mirrorTimeIs={mirrorTimeIs} />
 
           <div className={showAnswerStyle}>
             <div className={answerStyle}>
