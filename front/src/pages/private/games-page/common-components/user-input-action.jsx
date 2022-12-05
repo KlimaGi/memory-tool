@@ -14,6 +14,8 @@ function UserInputAction({ mirrorTimeIs }) {
     const answerFormatted = [addZero(hours), addZero(minutes)].join(':');
 
     mirrorTimeIs(answerFormatted);
+    hourRef.current.value = '';
+    minutesRef.current.value = '';
   };
 
   const flowWrite = () => {

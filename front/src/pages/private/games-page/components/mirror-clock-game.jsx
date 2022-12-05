@@ -19,8 +19,6 @@ function MirrorClockGame() {
     const newTime = randomTime();
     setTime(newTime);
     if (show === true) setShow(false);
-    // hourRef.current.value = '';
-    // minutesRef.current.value = '';
     setWrongAnswer('00:00');
   };
 
@@ -48,30 +46,26 @@ function MirrorClockGame() {
         <ClockCircleCounts time={time} />
       </div>
 
-      <div className={styles['game-item']}>
-        <div className={styles.container}>
-          <button
-            className={styles.button}
-            type="button"
-            onClick={generateTime}
-          >
-            start
-          </button>
-          <b>{time}</b>
+      <div className={`${styles.container} `}>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={generateTime}
+        >
+          start
+        </button>
+        <b>{time}</b>
 
-          <UserInputAction mirrorTimeIs={mirrorTimeIs} />
+        <UserInputAction mirrorTimeIs={mirrorTimeIs} />
 
-          <div className={showAnswerStyle}>
-            <div className={answerStyle}>
-              correct answer:
-              {' '}
-              {answer}
-            </div>
-
-          </div>
-
+        <div className={`${answerStyle} ${showAnswerStyle}`}>
+          correct answer:
+          {' '}
+          {answer}
         </div>
+
       </div>
+
       <div className={styles['clock-block']}>
         {
           show && (
@@ -86,7 +80,12 @@ function MirrorClockGame() {
         {
           wrongAnswer !== '00:00' && (
             <div className={`${styles['game-item']} ${styles['wrong-clock']}`}>
+              <div className={`${answerStyle} ${showAnswerStyle}`}>
+                wrong answer:
+                {' '}
+                {wrongAnswer}
 
+              </div>
               <ClockCircleCounts time={wrongAnswer} />
 
             </div>
