@@ -46,7 +46,7 @@ function MirrorClockGame() {
         <ClockCircleCounts time={time} />
       </div>
 
-      <div className={`${styles.container} `}>
+      <div className={styles.container}>
         <button
           className={styles.button}
           type="button"
@@ -56,12 +56,24 @@ function MirrorClockGame() {
         </button>
         <b>{time}</b>
 
-        <UserInputAction mirrorTimeIs={mirrorTimeIs} />
+        <UserInputAction getUserAnswer={mirrorTimeIs} />
 
         <div className={`${answerStyle} ${showAnswerStyle}`}>
-          correct answer:
-          {' '}
-          {answer}
+          <p>
+            Correct answer is:
+            {' '}
+            {answer}
+          </p>
+          {
+            wrongAnswer !== '00:00'
+            && (
+              <p>
+                Wrong answer:
+                {' '}
+                {wrongAnswer}
+              </p>
+            )
+          }
         </div>
 
       </div>
@@ -80,18 +92,10 @@ function MirrorClockGame() {
         {
           wrongAnswer !== '00:00' && (
             <div className={`${styles['game-item']} ${styles['wrong-clock']}`}>
-              <div className={`${answerStyle} ${showAnswerStyle}`}>
-                wrong answer:
-                {' '}
-                {wrongAnswer}
-
-              </div>
               <ClockCircleCounts time={wrongAnswer} />
-
             </div>
           )
         }
-
       </div>
 
     </div>

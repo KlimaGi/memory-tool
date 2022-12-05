@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import styles from './clock.module.scss';
 
-function UserInputAction({ mirrorTimeIs }) {
+function UserInputAction({ getUserAnswer }) {
   const hourRef = useRef();
   const minutesRef = useRef();
 
@@ -13,7 +13,7 @@ function UserInputAction({ mirrorTimeIs }) {
     const addZero = (num) => ((num.length < 2) ? `0${num}` : num);
     const answerFormatted = [addZero(hours), addZero(minutes)].join(':');
 
-    mirrorTimeIs(answerFormatted);
+    getUserAnswer(answerFormatted);
     hourRef.current.value = '';
     minutesRef.current.value = '';
   };

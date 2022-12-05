@@ -30,4 +30,27 @@ const whatIsTheTime = (timeInMirror) => {
 // "06:00" --> "06:00"
 // "12:00" --> "12:00"
 
-export { randomTime, whatIsTheTime };
+const timeDifference = ([time1, time2]) => {
+  console.log('[time1, time2]', [time1, time2]);
+  const num = (time) => time.split(':').map((x) => Number(x));
+  const [hour1, min1] = num(time1);
+  const [hour2, min2] = num(time2);
+
+  let mins = 0;
+  if (hour2 > hour1) {
+    mins = (hour2 * 60 + min2) - (hour1 * 60 + min1);
+  } else {
+    mins = 720 - (hour1 * 60 + min1) + (hour2 * 60 + min2);
+  }
+
+  const hours = Math.floor(mins / 60);
+  const minutes = mins % 60;
+
+  const resultH = (hours < 10) ? `0${hours}` : `${hours}`;
+  const resultM = (minutes < 10) ? `0${minutes}` : `${minutes}`;
+
+  const resultTime = [resultH, resultM].join(':');
+  return resultTime;
+};
+
+export { randomTime, whatIsTheTime, timeDifference };
