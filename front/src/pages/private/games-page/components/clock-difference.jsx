@@ -41,6 +41,7 @@ function ClockDifference() {
       <div className={styles['game-item']}>
         <ClockCircleCounts time={time[0]} />
       </div>
+
       <div className={styles['game-item']}>
         <ClockCircleCounts time={time[1]} />
       </div>

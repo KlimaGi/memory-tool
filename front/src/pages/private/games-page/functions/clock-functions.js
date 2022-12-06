@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
+const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 const randomTime = () => {
-  const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
   const addZeroStr = (num) => (num < 10 ? `0${num}` : `${num}`);
   const hours = rand(1, 12);
   const mint = rand(0, 60);
@@ -53,4 +53,6 @@ const timeDifference = ([time1, time2]) => {
   return resultTime;
 };
 
-export { randomTime, whatIsTheTime, timeDifference };
+export {
+  randomTime, whatIsTheTime, timeDifference, rand,
+};
