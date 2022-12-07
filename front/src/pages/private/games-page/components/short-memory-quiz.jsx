@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { generateNums } from '../functions/memory-quiz';
 import styles from '../common-components/clock.module.scss';
 
@@ -13,6 +13,7 @@ function ShortMemoryQuiz() {
     const numStringify = num.join('');
     setNumbers(numStringify);
     setShow(true);
+    numsRef.current.focus();
   };
 
   const checkCorrectness = () => {
@@ -24,9 +25,14 @@ function ShortMemoryQuiz() {
     setShow(true);
   };
 
-  setTimeout(() => {
-    setShow(false);
-  }, (numQuantity * 1, 5) * 1000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShow(false);
+      console.log('numQuantity', numQuantity);
+    }, (numQuantity * 1, 7) * 1000);
+
+    return () => clearTimeout(timeout);
+  }, [numQuantity]);
 
   return (
     <div className={styles.container}>
