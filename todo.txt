@@ -67,3 +67,9 @@ all games:
    -cards spin with button click 
    -cards goes by them line 
    -cards line reshuffle
+
+   -- add animated rule to others game
+   -- refactor clock games functions, restructure files 
+
+   -- take out text to other file, and use text from different file
+   (separate code, jsx and text )

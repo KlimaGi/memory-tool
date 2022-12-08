@@ -56,8 +56,8 @@ module.exports = {
     // years & days is 1 indexed
     // month is 0 indexed
     const date = moment().toArray();
-    const progress1 = moment(date).add(10, 'm').toArray();
-    const progress2 = moment(progress1).add(1, 'd').toArray();
+    const progress1 = moment([...date]).add(10, 'minutes').toArray();
+    const progress2 = moment([...progress1]).add(1, 'd').toArray();
     const progress3 = moment(progress2).add(1, 'w').toArray();
     const progress4 = moment(progress3).add(1, 'M').toArray();
     const progress5 = moment(progress4).add(6, 'M').toArray();
@@ -68,12 +68,11 @@ module.exports = {
       startDay: date,
       progress: [progress1, progress2, progress3, progress4, progress5],
       progressDone: -1,
-      progressDate: dateStrAddOne(progress1),
+      progressDate: dateStr([...progress1]),
     };
     const progressDate = topicData.progress[topicData.progressDone + 1];
-    topicData.progressDate = dateStr(progressDate);
 
-    console.log('progressDate', topicData.progressDate);
+    topicData.progressDate = dateStrAddOne([...progressDate]);
 
     const newTopic = new TopicSchema(topicData);
     await newTopic.save();
