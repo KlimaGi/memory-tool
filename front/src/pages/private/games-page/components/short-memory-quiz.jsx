@@ -25,6 +25,10 @@ function ShortMemoryQuiz() {
     setShow(true);
   };
 
+  const handleChange = () => {
+    setShow(false);
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShow(false);
@@ -51,6 +55,7 @@ function ShortMemoryQuiz() {
         placeholder="answer"
         className={styles['input-label']}
         ref={numsRef}
+        onChange={handleChange}
       />
       <button
         type="button"

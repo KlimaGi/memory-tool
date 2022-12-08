@@ -23,6 +23,7 @@ function UpdateTopic({ topic, setTopic, setClose }) {
       topicCopy.content = res.data.content;
 
       setTopic(topicCopy);
+      console.log('topicCopy', topicCopy);
     }
     setClose(false);
   };

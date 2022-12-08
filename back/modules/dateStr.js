@@ -1,26 +1,27 @@
 module.exports = {
 
   dateStrAddOne: (progressDate) => {
-    const dateFormat = (arr) => {
-      const dateArr = arr;
-      if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
-      if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
-      return dateArr.slice(0, 3).join('-');
+    const dateFormatted = (arr) => {
+      const formateDateArr = arr.slice(0, 3).map((num) => {
+        if (num < 10) return ('0').concat(num);
+        return num;
+      });
+      return formateDateArr.join('-');
     };
-
     const reviewDate = progressDate;
     reviewDate[1] = Number(reviewDate[1]) + 1;
-    const result = dateFormat(reviewDate);
+    const result = dateFormatted(reviewDate);
     return result;
   },
   dateStr: (progressDate) => {
-    const dateFormat = (arr) => {
-      const dateArr = arr;
-      if (dateArr[1] < 10) dateArr[1] = ('0').concat(dateArr[1]);
-      if (dateArr[2] < 10) dateArr[2] = ('0').concat(dateArr[2]);
-      return dateArr.slice(0, 3).join('-');
+    const dateFormatted = (arr) => {
+      const formateDateArr = arr.slice(0, 3).map((num) => {
+        if (num < 10) return ('0').concat(num);
+        return num;
+      });
+      return formateDateArr.join('-');
     };
-    const result = dateFormat(progressDate);
+    const result = dateFormatted(progressDate);
     return result;
   },
 };
