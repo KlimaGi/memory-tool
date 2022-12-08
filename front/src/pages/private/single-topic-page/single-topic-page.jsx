@@ -26,7 +26,7 @@ function SingleTopicPage() {
       setTopic(res.data);
     };
     singleTopic();
-  }, []);
+  }, [showUpdateForm]);
 
   const setNewRevisionDate = async () => {
     const res = await get(`updateProgress/${id}`);
