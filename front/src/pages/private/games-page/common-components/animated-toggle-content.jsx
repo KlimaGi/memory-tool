@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import styles from './animated-toggle-content.module.scss';
 
-function AnimatedToggleContent() {
+function AnimatedToggleContent({ mirrorClockRules }) {
   const [active, setActive] = useState(false);
   const classActive = active ? `${styles.active}` : '';
   const classBox = active ? `${styles.box}` : '';
@@ -18,9 +19,9 @@ function AnimatedToggleContent() {
         tabIndex="0"
       />
       <div className={`${styles.menu} ${classBox}`}>
-        <p>Hours are between 1 and 13.</p>
-        <p>There is no 00:20, instead it is 12:20.</p>
-        <p>There is no 13:20, instead it is 01:20.</p>
+
+        {mirrorClockRules.map((rule) => <p>{rule}</p>)}
+
       </div>
     </div>
   );

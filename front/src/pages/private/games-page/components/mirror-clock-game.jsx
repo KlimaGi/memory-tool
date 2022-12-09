@@ -5,6 +5,7 @@ import { randomTime, whatIsTheTime } from '../functions/clock-functions';
 import ClockCircleCounts from '../common-components/clock-circle-counts';
 import AnimatedToggleContent from '../common-components/animated-toggle-content';
 import UserInputAction from '../common-components/user-input-action';
+import { mirrorClockRules } from '../texts/game-rules-text';
 import styles from '../common-components/clock.module.scss';
 
 function MirrorClockGame() {
@@ -39,7 +40,7 @@ function MirrorClockGame() {
   return (
     <div className={styles['game-container']}>
       <div className={styles['rule-block']}>
-        <AnimatedToggleContent />
+        <AnimatedToggleContent mirrorClockRules={mirrorClockRules} />
       </div>
 
       <div className={styles['game-item']}>

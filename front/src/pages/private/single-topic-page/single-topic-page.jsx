@@ -14,7 +14,7 @@ function SingleTopicPage() {
 
   const [topic, setTopic] = useState(null);
 
-  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [showUpdateForm, setShowUpdateForm] = useState(null);
 
   const nav = useNavigate();
 
