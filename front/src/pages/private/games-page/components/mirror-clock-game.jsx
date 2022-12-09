@@ -40,7 +40,7 @@ function MirrorClockGame() {
   return (
     <div className={styles['game-container']}>
       <div className={styles['rule-block']}>
-        <AnimatedToggleContent mirrorClockRules={mirrorClockRules} />
+        <AnimatedToggleContent rulesText={mirrorClockRules} />
       </div>
 
       <div className={styles['game-item']}>

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from './animated-toggle-content.module.scss';
 
-function AnimatedToggleContent({ mirrorClockRules }) {
+function AnimatedToggleContent({ rulesText }) {
   const [active, setActive] = useState(false);
   const classActive = active ? `${styles.active}` : '';
   const classBox = active ? `${styles.box}` : '';
@@ -20,7 +20,7 @@ function AnimatedToggleContent({ mirrorClockRules }) {
       />
       <div className={`${styles.menu} ${classBox}`}>
 
-        {mirrorClockRules.map((rule) => <p>{rule}</p>)}
+        {rulesText.map((rule) => <p>{rule}</p>)}
 
       </div>
     </div>
