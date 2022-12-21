@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { get } from '../../plugins/http';
 import SingleTopic from './all-topics-page/components/single-topic';
+import styles from './all-topics-page/components/single-topic.module.scss';
 
 function TodayPage() {
   const today = moment().format('YYYY-MM-DD');
@@ -26,7 +27,7 @@ function TodayPage() {
             Today you do not have any topics to review
           </div>
         )}
-      <div>
+      <div className={styles['topics-container']}>
         {topics
           && topics.map((topic) => <SingleTopic topic={topic} key={topic._id} />)}
       </div>

@@ -71,5 +71,7 @@ all games:
    -- add animated rule to others game
    -- refactor clock games functions, restructure files 
 
-   -- take out text to other file, and use text from different file
+   --* take out text to other file, and use text from different file
    (separate code, jsx and text )
+
+   -- add animated toggle rue to countRemember game

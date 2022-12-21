@@ -27,7 +27,6 @@ function SingleTopic({ topic }) {
       </span>
       <h3>{topic.title}</h3>
       <p>{topic.content}</p>
-
     </div>
   );
 }

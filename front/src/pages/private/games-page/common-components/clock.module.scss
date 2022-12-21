@@ -1,15 +1,26 @@
 @import 'variables';
 
+.main-container {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  background-color: rgb(158, 187, 149);
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
 .game-container {
   margin: 1rem auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 52rem;
+  min-width: 52rem;
+  height: 60vh;
   // border: 1px solid #a21381;
   gap: 1rem;
   position: relative;
+  scroll-snap-align: center;
 }
 
 .rule-block {
@@ -55,6 +66,7 @@
   width: 14.5rem;
   height: 40vh;
   margin: 0 auto;
+
 }
 
 .input-container {

@@ -39,7 +39,7 @@ function ShortMemoryQuiz() {
   }, [numQuantity]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles['game-container']}>
       <button
         onClick={generate}
         type="button"
