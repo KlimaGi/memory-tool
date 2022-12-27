@@ -1,5 +1,13 @@
 const get = async (url) => {
-  const res = await fetch(`http://localhost:4000/${url}`);
+  const options = {
+    method: 'GET',
+    credential: 'include',
+    headers: {
+      'content-type': 'application/json',
+    },
+  };
+
+  const res = await fetch(`http://localhost:4000/${url}`, options);
   const result = await res.json();
   return result;
 };
@@ -7,6 +15,7 @@ const get = async (url) => {
 const post = async (url, data) => {
   const options = {
     method: 'POST',
+    credential: 'include',
     headers: {
       'content-type': 'application/json',
     },

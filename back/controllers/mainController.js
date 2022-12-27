@@ -24,6 +24,8 @@ module.exports = {
   },
   login: async (req, res) => {
     const { email, password } = req.body;
+    console.log('req.session', req.session);
+
     // todo: create middle to check if user exist
     const userExists = await UserSchema.findOne({ email });
 
