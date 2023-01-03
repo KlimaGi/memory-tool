@@ -25,7 +25,7 @@
         *- eslint front
 - add tests to node/back modules and middlewares (2022-10-28 lesson)
  
-
+ 
 -https://www.youtube.com/watch?v=pf6Zhm-PDfQ&ab_channel=TECHIN5MINUTES
 https://www.youtube.com/watch?v=7r4xVDI2vho&ab_channel=TraversyMedia
 https://www.youtube.com/watch?v=zRo2tvQpus8&ab_channel=TraversyMedia
@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=ZKEqqIO7n-k
 
  
 // bugs: 
-- correct progress data count in front
+*- correct progress data count in front
 
 *- add games page
  *- auto focus, 
