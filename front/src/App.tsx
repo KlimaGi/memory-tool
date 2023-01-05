@@ -37,7 +37,7 @@ function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<PublicPage />} />
+            <Route path="/" element={<PublicPage />} />
 
             <Route path="auth" element={<AuthLayout />}>
               <Route path="login" element={<LoginPage />} />
