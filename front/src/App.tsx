@@ -20,11 +20,15 @@ import TodayPage from './pages/private/today-page';
 import SingleTopicPage from './pages/private/single-topic-page/single-topic-page';
 import GamesPage from './pages/private/games-page/games-page';
 
-function App() {
-  const [topics, setTopics] = useState([]);
-  const [user, setUser] = useState(null);
+import { TopicInterface, UserInterface, MainContextInterface } from "./types/main-types";
 
-  const states = {
+
+
+const App: React.FC = () => {
+  const [topics, setTopics] = useState<TopicInterface[] | null>(null);
+  const [user, setUser] = useState<UserInterface | null>(null);
+
+  const states: MainContextInterface = {
     topics,
     setTopics,
     user,

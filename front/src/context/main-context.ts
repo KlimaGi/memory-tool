@@ -1,20 +1,6 @@
 import { createContext } from 'react';
+import { MainContextInterface } from '../types/main-types';
 
-interface TopicInterface {
-  userIdSecret: String,
-  title: String,
-  content: String,
-  startDay: [Number],
-  progress: [[Number], [Number], [Number], [Number], [Number]],
-  progressDone: Number,
-  progressDate: String,
-}
-
-interface MainContextInterface {
-  topics: TopicInterface[],
-
-}
-
-const MainContext = createContext<TopicInterface | null>(null);
+const MainContext = createContext<MainContextInterface | null>(null);
 
 export default MainContext;
