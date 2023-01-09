@@ -1,4 +1,4 @@
-const get = async (url) => {
+const get = async (url: string) => {
   const options = {
     method: 'GET',
     credential: 'include',
@@ -12,7 +12,34 @@ const get = async (url) => {
   return result;
 };
 
-const post = async (url, data) => {
+type DataPostInterface = {
+  secret: String,
+  title: String,
+  content: String
+}
+
+type DataRegisterInterface = {
+  email: String,
+  password: String,
+  Password2: String
+}
+
+type DataLoginInterface = {
+  email: String,
+  password: String
+}
+
+type PostData = DataPostInterface | DataRegisterInterface | DataLoginInterface;
+
+type objectType = {
+  error: string,
+  message: string,
+  data: {}
+}
+
+type PostInterface = (url: string, data: PostData) => Promise<objectType>;
+
+const post: PostInterface = async (url, data) => {
   const options = {
     method: 'POST',
     credential: 'include',
